@@ -1,7 +1,6 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
-import 'package:wibsite/sign_in/textfiled.dart';
 import 'package:wibsite/sign_up/textfield_signup.dart';
 
 class SignUp extends StatelessWidget {
@@ -64,7 +63,7 @@ class SignUp extends StatelessWidget {
                     Text(
                       "Sign Up",
                       style: TextStyle(
-                          fontSize: 32,
+                          fontSize: 50,
                           fontWeight: FontWeight.bold,
                           color: Color.fromARGB(255, 8, 84, 189)),
                     ),
