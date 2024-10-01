@@ -34,7 +34,7 @@ class SignUp extends StatelessWidget {
           padding: EdgeInsets.all(25),
           decoration: BoxDecoration(
             image: DecorationImage(
-              image: AssetImage('assets/sign_up/dark.jpg'),
+              image: AssetImage('assets/sign_up/blue.png'),
               fit: BoxFit
                   .fill, // Use cover for full coverage while maintaining aspect ratio
             ),

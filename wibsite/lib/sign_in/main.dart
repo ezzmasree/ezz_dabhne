@@ -1,9 +1,13 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'dart:convert';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:wibsite/sign_in/palet.dart';
 import 'package:wibsite/sign_in/singboton.dart';
 import 'package:wibsite/sign_in/textfiled.dart';
+import 'package:wibsite/sign_up/sign_up.dart';
 import 'package:wibsite/the_main_page/the_mainpage.dart';
 
 class SignIn extends StatefulWidget {
@@ -146,8 +150,36 @@ class _SignInState extends State<SignIn> {
                       hint: "Password",
                       secrt: true,
                     ),
+                    RichText(
+                      text: TextSpan(
+                        text: "Don't have an account? ",
+                        style: TextStyle(
+                            color: Colors.white), // Style for the regular text
+                        children: [
+                          TextSpan(
+                            text: "Register",
+                            style: TextStyle(
+                                color: Colors
+                                    .blue), // Style for the clickable text
+                            recognizer: TapGestureRecognizer()
+                              ..onTap = () {
+                                // Navigate to another page
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) =>
+                                          SignUp()), // Replace with your page
+                                );
+                              },
+                          ),
+                        ],
+                      ),
+                    ),
+
+                    // Text("Rigister"),
                     Visibility(
                       visible: _isVisible,
+                      // ignore: prefer_const_constructors
                       child: Text(
                         "Wrong password or email",
                         style: TextStyle(
