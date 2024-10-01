@@ -1,33 +1,25 @@
-// ignore_for_file: prefer_const_constructors
-
 import 'dart:convert';
 import 'package:flutter/material.dart';
-// import 'package:log/boton.dart';
-// import 'package:log/palet.dart';
-// import 'package:log/singboton.dart';
-// import 'package:log/textfiled.dart';
+import 'package:http/http.dart' as http;
 import 'package:wibsite/sign_in/palet.dart';
 import 'package:wibsite/sign_in/singboton.dart';
 import 'package:wibsite/sign_in/textfiled.dart';
-import 'package:http/http.dart' as http;
 import 'package:wibsite/the_main_page/the_mainpage.dart';
 
-class sign_in extends StatefulWidget {
-  // Changed to StatefulWidget
-  const sign_in({super.key});
+class SignIn extends StatefulWidget {
+  const SignIn({super.key});
 
   @override
-  _SignInState createState() => _SignInState(); // Create the state class
+  _SignInState createState() => _SignInState();
 }
 
-class _SignInState extends State<sign_in> {
-  TextEditingController emailcoun = TextEditingController();
-  TextEditingController paswordcoun = TextEditingController();
-  bool _isVisible = false; // Variable to control visibility of error message
+class _SignInState extends State<SignIn> {
+  TextEditingController emailController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
+  bool _isVisible = false;
 
   void searchById(String id) async {
-    final url =
-        Uri.parse('http://192.168.1.11:3000/pro/$id'); // Your Node.js API URL
+    final url = Uri.parse('http://192.168.1.11:3000/pro/$id');
 
     try {
       final response = await http.get(url);
@@ -38,28 +30,27 @@ class _SignInState extends State<sign_in> {
         if (data != null) {
           String password = data['password'];
           String email = data['email'];
-          if (password == paswordcoun.text && email == emailcoun.text) {
+          if (password == passwordController.text &&
+              email == emailController.text) {
             print("ezz is chelsea");
             setState(() {
-              _isVisible = false; // Hide error message if password is correct
+              _isVisible = false;
               Navigator.push(
                 context,
-                MaterialPageRoute(
-                    builder: (context) =>
-                        the_mainpage()), // Navigate to SecondPage
+                MaterialPageRoute(builder: (context) => the_mainpage()),
               );
             });
           } else {
             setState(() {
-              paswordcoun.clear();
-              _isVisible = true; // Show error message if password is incorrect
+              passwordController.clear();
+              _isVisible = true;
             });
           }
         }
         if (data == null) {
           setState(() {
-            paswordcoun.clear();
-            _isVisible = true; // Show error message if password is incorrect
+            passwordController.clear();
+            _isVisible = true;
           });
         }
       } else {
@@ -70,12 +61,11 @@ class _SignInState extends State<sign_in> {
     }
   }
 
-  void sighpress() {
-    String email = emailcoun.text;
-    String password = paswordcoun.text;
+  void signInPress() {
+    String email = emailController.text;
+    String password = passwordController.text;
     searchById(email);
 
-    // For demonstration purposes, we'll print the values
     print('Email: $email');
     print('Password: $password');
   }
@@ -88,11 +78,13 @@ class _SignInState extends State<sign_in> {
         scaffoldBackgroundColor: Pallete.backgroundColor,
       ),
       home: Scaffold(
+        extendBodyBehindAppBar: true,
         appBar: AppBar(
-          backgroundColor: Colors.transparent,
-          elevation: 0,
+          backgroundColor: Colors.transparent, // Make the AppBar transparent
+          elevation: 0, // Remove the AppBar shadow
           leading: IconButton(
-            icon: Icon(Icons.arrow_back), // Default back arrow icon
+            icon: Icon(Icons.arrow_back,
+                color: Color.fromARGB(255, 25, 159, 248)), // Back arrow button
             onPressed: () {
               Navigator.pop(context); // Go back to the previous page
             },
@@ -102,59 +94,74 @@ class _SignInState extends State<sign_in> {
           padding: EdgeInsets.all(50),
           decoration: BoxDecoration(
             image: DecorationImage(
-              image: AssetImage(
-                  'assets/sign_in/ron.png'), // Change to your image path
-              fit: BoxFit.fill, // Adjust to fit the screen
+              image: AssetImage('assets/sign_in/in.jpg'),
+              fit: BoxFit.fill,
             ),
           ),
-          child: Align(
-            alignment: Alignment.centerLeft,
-            child: SingleChildScrollView(
-              child: Column(
-                children: [
-                  Text(
-                    "Sign in",
-                    style: TextStyle(
-                      fontSize: 50,
-                      fontWeight: FontWeight.bold,
-                      foreground: Paint()
-                        ..shader = LinearGradient(
-                          colors: <Color>[
-                            Color(0xFF693B37), // Your specified color
-                            Colors.red, // Second color (change as needed)
-                          ],
-                        ).createShader(Rect.fromLTWH(
-                            0, 0, 200, 70)), // Adjust width/height as needed
-                    ),
-                  ),
-                  SizedBox(height: 70),
-                  textfeld(
-                    secrt: false,
-                    controller: emailcoun,
-                    hint: "Email", // Capitalized for consistency
-                  ),
-                  SizedBox(height: 20),
-                  textfeld(
-                    controller: paswordcoun,
-                    hint: "Password",
-                    secrt: true,
-                  ),
-                  Visibility(
-                    visible:
-                        _isVisible, // Control visibility based on _isVisible
-                    child: Text(
-                      "Wrong password or email",
-                      style: TextStyle(
-                        color: Colors.red,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ),
-                  SizedBox(height: 20),
-                  singboton(
-                    onPressed: sighpress,
+          child: Center(
+            // Center the content
+            child: Container(
+              padding: EdgeInsets.all(20),
+              decoration: BoxDecoration(
+                color: Colors.black54
+                    .withOpacity(0.7), // Background color with opacity
+                borderRadius: BorderRadius.circular(15),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black,
+                    blurRadius: 10,
+                    offset: Offset(0, 5),
                   ),
                 ],
+              ),
+              child: SingleChildScrollView(
+                child: Column(
+                  mainAxisSize: MainAxisSize.min, // To fit content
+                  children: [
+                    Text(
+                      "Sign in",
+                      style: TextStyle(
+                        fontSize: 50,
+                        fontWeight: FontWeight.bold,
+                        foreground: Paint()
+                          ..shader = LinearGradient(
+                            colors: <Color>[
+                              Color(0xff43011D),
+                              Color.fromARGB(255, 25, 159, 248),
+                            ],
+                          ).createShader(Rect.fromLTWH(0, 0, 200, 70)),
+                      ),
+                    ),
+                    SizedBox(height: 70),
+                    textfeld(
+                      icon: Icons.email,
+                      secrt: false,
+                      controller: emailController,
+                      hint: "Email",
+                    ),
+                    SizedBox(height: 20),
+                    textfeld(
+                      icon: Icons.lock,
+                      controller: passwordController,
+                      hint: "Password",
+                      secrt: true,
+                    ),
+                    Visibility(
+                      visible: _isVisible,
+                      child: Text(
+                        "Wrong password or email",
+                        style: TextStyle(
+                          color: Colors.red,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                    SizedBox(height: 20),
+                    singboton(
+                      onPressed: signInPress,
+                    ),
+                  ],
+                ),
               ),
             ),
           ),

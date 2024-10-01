@@ -10,10 +10,10 @@ class SignUp extends StatelessWidget {
   Widget build(BuildContext context) {
     TextEditingController emailcontroller = TextEditingController();
     TextEditingController passwordcontroller = TextEditingController();
-
     TextEditingController hintpasswordcontroller = TextEditingController();
     TextEditingController namecontroller = TextEditingController();
     TextEditingController agecontroller = TextEditingController();
+
     void onPressed() {}
 
     return Scaffold(
@@ -34,32 +34,31 @@ class SignUp extends StatelessWidget {
           padding: EdgeInsets.all(25),
           decoration: BoxDecoration(
             image: DecorationImage(
-              image: AssetImage('assets/sign_up/qq.png'),
+              image: AssetImage('assets/sign_up/dark.jpg'),
               fit: BoxFit
                   .fill, // Use cover for full coverage while maintaining aspect ratio
             ),
           ),
-          child: Padding(
-            padding: const EdgeInsets.only(top: 40, left: 20),
-            child: Center(
+          child: Center(
+            child: Container(
+              padding: EdgeInsets.all(20),
+              decoration: BoxDecoration(
+                color: Colors.white, // Set the background color to white
+                borderRadius:
+                    BorderRadius.circular(15), // Optional: add rounded corners
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black26,
+                    blurRadius: 10,
+                    offset: Offset(0, 2),
+                  ),
+                ],
+              ),
               child: SingleChildScrollView(
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
-                  // mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    // Row(
-                    //   children: [
-                    //     SizedBox(
-                    //       width: 110,
-                    //     ),
-                    //     Text(
-                    //       "Sign Up",
-                    //       style: TextStyle(
-                    //           fontSize: 30, fontWeight: FontWeight.bold),
-                    //     )
-                    //   ],
-                    // ),
                     Text(
                       "Sign Up",
                       style: TextStyle(
@@ -67,50 +66,37 @@ class SignUp extends StatelessWidget {
                           fontWeight: FontWeight.bold,
                           color: Color.fromARGB(255, 8, 84, 189)),
                     ),
-                    SizedBox(
-                      height: 20,
-                    ),
+                    SizedBox(height: 20),
                     textfiled_signup(
                         icon: Icons.email,
                         controller: emailcontroller,
                         hint: "Email",
                         secrt: false),
-                    SizedBox(
-                      height: 10,
-                    ),
+                    SizedBox(height: 10),
                     textfiled_signup(
                         icon: Icons.lock,
                         controller: passwordcontroller,
                         hint: "Password",
                         secrt: true),
-
-                    SizedBox(
-                      height: 10,
-                    ),
+                    SizedBox(height: 10),
                     textfiled_signup(
                         icon: Icons.lock_outline,
                         controller: hintpasswordcontroller,
-                        hint: "confirm Password",
+                        hint: "Confirm Password",
                         secrt: true),
-                    SizedBox(
-                      height: 10,
-                    ),
+                    SizedBox(height: 10),
                     textfiled_signup(
                         icon: Icons.person,
                         controller: namecontroller,
                         hint: "Your Name",
                         secrt: false),
-                    SizedBox(
-                      height: 10,
-                    ),
+                    SizedBox(height: 10),
                     textfiled_signup(
                         icon: Icons.cake,
                         controller: agecontroller,
                         hint: "Your Age",
                         secrt: false),
-                    SizedBox(
-                      height: 10,
-                    ),
+                    SizedBox(height: 10),
                     Container(
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(8),
@@ -128,10 +114,9 @@ class SignUp extends StatelessWidget {
                               .transparent, // Transparent background for gradient effect
                           fixedSize: const Size(300, 50),
                         ),
-                        onPressed:
-                            onPressed, // Using the onPressed callback passed from parent
+                        onPressed: onPressed, // Using the onPressed callback
                         child: const Text(
-                          "Sign up",
+                          "Sign Up",
                           style: TextStyle(fontSize: 18, color: Colors.white),
                         ),
                       ),
@@ -143,14 +128,14 @@ class SignUp extends StatelessWidget {
                       },
                       child: Text(
                         "Already have an account? Sign In",
-                        style: TextStyle(color: Colors.white),
+                        style: TextStyle(color: Colors.black),
                       ),
-                    )
+                    ),
                   ],
                 ),
               ),
             ),
-          ), // Your other content goes here
+          ),
         ),
       ),
     );

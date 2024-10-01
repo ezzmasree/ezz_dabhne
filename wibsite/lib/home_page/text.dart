@@ -31,7 +31,7 @@ class para extends StatelessWidget {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                    builder: (context) => sign_in()), // Navigate to SecondPage
+                    builder: (context) => SignIn()), // Navigate to SecondPage
               );
             },
             child: Container(
