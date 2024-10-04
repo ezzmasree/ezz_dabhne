@@ -11,6 +11,7 @@ dependencies:
   flutter:
     sdk: flutter
   http: ^1.2.2
+  google_fonts: ^6.2.1
   mongo_dart: ^0.10.3
   responsive_builder: ^0.7.1
 dev_dependencies:
@@ -24,3 +25,4 @@ flutter:
     - assets/sign_in/
     - assets/
     - assets/sign_up/
+    - assets/the_mainpage/

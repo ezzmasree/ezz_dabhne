@@ -21,6 +21,28 @@ class _SignInState extends State<SignIn> {
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
   bool _isVisible = false;
+  // sending email
+  Future<void> sendEmail(String to, String subject, String text) async {
+    const url = 'http://192.168.1.11:3000/send-email';
+    final response = await http.post(
+      Uri.parse(url),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: jsonEncode({
+        'to': to,
+        'subject': subject,
+        'text': text,
+      }),
+    );
+
+    if (response.statusCode == 200) {
+      print('Email sent!');
+    } else {
+      print('Failed to send email: ${response.body}');
+    }
+  }
+//////
 
   void searchById(String id) async {
     final url = Uri.parse('http://192.168.1.11:3000/pro/$id');
@@ -36,12 +58,13 @@ class _SignInState extends State<SignIn> {
           String email = data['email'];
           if (password == passwordController.text &&
               email == emailController.text) {
+            sendEmail(emailController.text, 'hey', 'love u body');
             print("ezz is chelsea");
             setState(() {
               _isVisible = false;
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => the_mainpage()),
+                MaterialPageRoute(builder: (context) => TheMainPage()),
               );
             });
           } else {

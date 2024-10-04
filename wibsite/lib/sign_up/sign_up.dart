@@ -1,31 +1,76 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
+import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:wibsite/sign_up/textfield_signup.dart';
+import 'package:http/http.dart' as http;
 
-class SignUp extends StatelessWidget {
+class SignUp extends StatefulWidget {
   const SignUp({super.key});
 
   @override
+  _SignUpState createState() => _SignUpState();
+}
+
+class _SignUpState extends State<SignUp> {
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
+  final TextEditingController hintPasswordController = TextEditingController();
+  final TextEditingController nameController = TextEditingController();
+  final TextEditingController ageController = TextEditingController();
+  bool visible = false;
+  Future<void> submitData() async {
+    final url =
+        'http://192.168.1.11:3000/users'; // Replace with your actual backend URL
+    final response = await http.post(
+      Uri.parse(url),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: json.encode({
+        'name': nameController.text,
+        'email': emailController.text,
+        'password': passwordController.text,
+        'age': int.tryParse(ageController.text) ?? 0,
+      }),
+    );
+
+    if (response.statusCode == 201) {
+      print('User created successfully');
+    } else {
+      print('Failed to create user: ${response.body}');
+    }
+  }
+
+  void onPressed() {
+    if (emailController.text.isEmpty &&
+        passwordController.text.isEmpty &&
+        hintPasswordController.text.isEmpty &&
+        nameController.text.isEmpty &&
+        ageController.text.isEmpty) {
+      setState(() {
+        visible = true; // Update visibility to show an error or message
+      });
+    } else {
+      // Proceed with sign-up logic here
+
+      setState(() {
+        visible = false; // Hide the message if inputs are filled
+      });
+      submitData();
+    }
+  }
+
+  @override
   Widget build(BuildContext context) {
-    TextEditingController emailcontroller = TextEditingController();
-    TextEditingController passwordcontroller = TextEditingController();
-    TextEditingController hintpasswordcontroller = TextEditingController();
-    TextEditingController namecontroller = TextEditingController();
-    TextEditingController agecontroller = TextEditingController();
-
-    void onPressed() {}
-
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(
-        backgroundColor: Colors.transparent, // Make the AppBar transparent
-        elevation: 0, // Remove the AppBar shadow
+        backgroundColor: Colors.transparent,
+        elevation: 0,
         leading: IconButton(
-          icon:
-              Icon(Icons.arrow_back, color: Colors.black), // Back arrow button
+          icon: Icon(Icons.arrow_back, color: Colors.black),
           onPressed: () {
-            Navigator.pop(context); // Go back to the previous page
+            Navigator.pop(context);
           },
         ),
       ),
@@ -34,18 +79,16 @@ class SignUp extends StatelessWidget {
           padding: EdgeInsets.all(25),
           decoration: BoxDecoration(
             image: DecorationImage(
-              image: AssetImage('assets/sign_up/blue.png'),
-              fit: BoxFit
-                  .fill, // Use cover for full coverage while maintaining aspect ratio
+              image: AssetImage('assets/sign_up/ff.png'),
+              fit: BoxFit.fill,
             ),
           ),
           child: Center(
             child: Container(
               padding: EdgeInsets.all(20),
               decoration: BoxDecoration(
-                color: Colors.white, // Set the background color to white
-                borderRadius:
-                    BorderRadius.circular(15), // Optional: add rounded corners
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(15),
                 boxShadow: [
                   BoxShadow(
                     color: Colors.black26,
@@ -55,83 +98,101 @@ class SignUp extends StatelessWidget {
                 ],
               ),
               child: SingleChildScrollView(
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Text(
-                      "Sign Up",
-                      style: TextStyle(
+                child: Container(
+                  padding: EdgeInsets.only(left: 60, right: 60),
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Text(
+                        "Sign Up",
+                        style: TextStyle(
                           fontSize: 50,
                           fontWeight: FontWeight.bold,
-                          color: Color.fromARGB(255, 8, 84, 189)),
-                    ),
-                    SizedBox(height: 20),
-                    textfiled_signup(
+                          color: Color.fromARGB(255, 8, 84, 189),
+                        ),
+                      ),
+                      SizedBox(height: 20),
+                      textfiled_signup(
                         icon: Icons.email,
-                        controller: emailcontroller,
+                        controller: emailController,
                         hint: "Email",
-                        secrt: false),
-                    SizedBox(height: 10),
-                    textfiled_signup(
+                        secrt: false,
+                      ),
+                      SizedBox(height: 10),
+                      textfiled_signup(
                         icon: Icons.lock,
-                        controller: passwordcontroller,
+                        controller: passwordController,
                         hint: "Password",
-                        secrt: true),
-                    SizedBox(height: 10),
-                    textfiled_signup(
+                        secrt: true,
+                      ),
+                      SizedBox(height: 10),
+                      textfiled_signup(
                         icon: Icons.lock_outline,
-                        controller: hintpasswordcontroller,
+                        controller: hintPasswordController,
                         hint: "Confirm Password",
-                        secrt: true),
-                    SizedBox(height: 10),
-                    textfiled_signup(
+                        secrt: true,
+                      ),
+                      SizedBox(height: 10),
+                      textfiled_signup(
                         icon: Icons.person,
-                        controller: namecontroller,
+                        controller: nameController,
                         hint: "Your Name",
-                        secrt: false),
-                    SizedBox(height: 10),
-                    textfiled_signup(
+                        secrt: false,
+                      ),
+                      SizedBox(height: 10),
+                      textfiled_signup(
                         icon: Icons.cake,
-                        controller: agecontroller,
+                        controller: ageController,
                         hint: "Your Age",
-                        secrt: false),
-                    SizedBox(height: 10),
-                    Container(
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(8),
-                        gradient: const LinearGradient(
-                          colors: [
-                            Color.fromARGB(255, 255, 255, 255),
-                            Color.fromARGB(255, 5, 176, 238),
-                            Color.fromARGB(255, 20, 0, 122),
-                          ],
+                        secrt: false,
+                      ),
+                      SizedBox(height: 10),
+                      Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(8),
+                          gradient: const LinearGradient(
+                            colors: [
+                              Color.fromARGB(255, 255, 255, 255),
+                              Color.fromARGB(255, 5, 176, 238),
+                              Color.fromARGB(255, 20, 0, 122),
+                            ],
+                          ),
+                        ),
+                        child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: Colors.transparent,
+                            fixedSize: const Size(300, 50),
+                          ),
+                          onPressed: onPressed,
+                          child: const Text(
+                            "Sign Up",
+                            style: TextStyle(fontSize: 18, color: Colors.white),
+                          ),
                         ),
                       ),
-                      child: ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors
-                              .transparent, // Transparent background for gradient effect
-                          fixedSize: const Size(300, 50),
-                        ),
-                        onPressed: onPressed, // Using the onPressed callback
-                        child: const Text(
-                          "Sign Up",
-                          style: TextStyle(fontSize: 18, color: Colors.white),
+                      SizedBox(height: 20),
+                      TextButton(
+                        onPressed: () {
+                          Navigator.pop(context);
+                        },
+                        child: Text(
+                          "Already have an account? Sign In",
+                          style: TextStyle(color: Colors.black),
                         ),
                       ),
-                    ),
-                    SizedBox(height: 20),
-                    TextButton(
-                      onPressed: () {
-                        Navigator.pop(context);
-                      },
-                      child: Text(
-                        "Already have an account? Sign In",
-                        style: TextStyle(color: Colors.black),
+                      Visibility(
+                        visible: visible,
+                        child: Text(
+                          "Please fill in all fields.",
+                          style: TextStyle(
+                            color: Colors.red,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
             ),

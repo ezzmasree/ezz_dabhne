@@ -17,11 +17,11 @@ class textfiled_signup extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ConstrainedBox(
-      constraints: const BoxConstraints(maxWidth: 300),
+      constraints: const BoxConstraints(maxWidth: 350, maxHeight: 55),
       child: TextFormField(
         obscureText: this.secrt,
         controller: controller,
-        style: TextStyle(color: Colors.white),
+        style: TextStyle(color: Color.fromARGB(255, 0, 24, 145)),
         decoration: InputDecoration(
             prefixIcon: Icon(
               icon,
@@ -40,11 +40,11 @@ class textfiled_signup extends StatelessWidget {
             contentPadding: const EdgeInsets.all(25),
             focusedBorder: OutlineInputBorder(
                 borderSide: const BorderSide(
-                    color: Color.fromARGB(255, 47, 5, 199), width: 4),
+                    color: Color.fromARGB(255, 10, 93, 201), width: 2),
                 borderRadius: BorderRadius.circular(15)),
             enabledBorder: OutlineInputBorder(
                 borderSide: const BorderSide(
-                    color: Color.fromARGB(255, 55, 0, 237), width: 4),
+                    color: Color.fromARGB(255, 10, 93, 201), width: 2),
                 borderRadius: BorderRadius.circular(15))),
       ),
     );

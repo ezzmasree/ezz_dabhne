@@ -4,6 +4,8 @@ const productSchema = new mongoose.Schema({
   id: String,
   password: String,
   name: String,
+  email: String,
+  age: Number,
   quantity: Number,
 });
 
