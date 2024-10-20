@@ -10,6 +10,6 @@ class the_mainpage extends StatefulWidget {
 class _the_mainpageState extends State<the_mainpage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return const Scaffold();
   }
 }

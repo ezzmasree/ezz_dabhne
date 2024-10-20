@@ -119,7 +119,7 @@ class _SignInState extends State<sign_in> {
                       fontWeight: FontWeight.bold,
                       foreground: Paint()
                         ..shader = LinearGradient(
-                          colors: <Color>[
+                          colors: const <Color>[
                             Color(0xFF693B37), // Your specified color
                             Colors.red, // Second color (change as needed)
                           ],

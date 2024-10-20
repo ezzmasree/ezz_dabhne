@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+// ignore: unnecessary_import
 import 'package:flutter/widgets.dart';
+// ignore: unused_import
 import 'package:wibsite/sign_in/palet.dart';
 
 class textfiled_signup extends StatelessWidget {
@@ -19,9 +21,9 @@ class textfiled_signup extends StatelessWidget {
     return ConstrainedBox(
       constraints: const BoxConstraints(maxWidth: 300),
       child: TextFormField(
-        obscureText: this.secrt,
+        obscureText: secrt,
         controller: controller,
-        style: TextStyle(color: Colors.white),
+        style: const TextStyle(color: Colors.white),
         decoration: InputDecoration(
             prefixIcon: Icon(
               icon,
@@ -34,7 +36,7 @@ class textfiled_signup extends StatelessWidget {
             // ),
             hintText: hint,
             // labelStyle: TextStyle(color: Colors.white),
-            hintStyle: TextStyle(
+            hintStyle: const TextStyle(
                 fontWeight: FontWeight.bold,
                 color: Color.fromARGB(255, 8, 84, 189)),
             contentPadding: const EdgeInsets.all(25),
