@@ -8,8 +8,10 @@ class textfeld extends StatelessWidget {
   final String hint;
   final TextEditingController controller;
   final bool secrt;
+  final IconData icon;
   const textfeld(
       {super.key,
+      required this.icon,
       required this.controller,
       required this.hint,
       required this.secrt});
@@ -22,6 +24,10 @@ class textfeld extends StatelessWidget {
         obscureText: secrt,
         controller: controller,
         decoration: InputDecoration(
+            prefixIcon: Icon(
+              icon,
+              color: Colors.blueGrey,
+            ),
             // icon: SvgPicture.asset(
             //   'assets/svgs/g_logo.svg',
             //   width: 20,

@@ -1,67 +1,18 @@
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:wibsite/sign_up/textfield_signup.dart';
-import 'package:http/http.dart' as http;
+import 'package:wibsite/sign_up_moblie/textfield_signup.dart';
 
-class SignUp extends StatefulWidget {
-  const SignUp({super.key});
-
-  @override
-  _SignUpState createState() => _SignUpState();
-}
-
-class _SignUpState extends State<SignUp> {
-  final TextEditingController emailController = TextEditingController();
-  final TextEditingController passwordController = TextEditingController();
-  final TextEditingController hintPasswordController = TextEditingController();
-  final TextEditingController nameController = TextEditingController();
-  final TextEditingController ageController = TextEditingController();
-  bool visible = false;
-  Future<void> submitData() async {
-    final url =
-        'http://192.168.1.11:3000/users'; // Replace with your actual backend URL
-    final response = await http.post(
-      Uri.parse(url),
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: json.encode({
-        'name': nameController.text,
-        'email': emailController.text,
-        'password': passwordController.text,
-        'age': int.tryParse(ageController.text) ?? 0,
-      }),
-    );
-
-    if (response.statusCode == 201) {
-      print('User created successfully');
-    } else {
-      print('Failed to create user: ${response.body}');
-    }
-  }
-
-  void onPressed() {
-    if (emailController.text.isEmpty &&
-        passwordController.text.isEmpty &&
-        hintPasswordController.text.isEmpty &&
-        nameController.text.isEmpty &&
-        ageController.text.isEmpty) {
-      setState(() {
-        visible = true; // Update visibility to show an error or message
-      });
-    } else {
-      // Proceed with sign-up logic here
-
-      setState(() {
-        visible = false; // Hide the message if inputs are filled
-      });
-      submitData();
-    }
-  }
+class SignUpmoblie extends StatelessWidget {
+  const SignUpmoblie({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final TextEditingController emailController = TextEditingController();
+    final TextEditingController passwordController = TextEditingController();
+    final TextEditingController hintPasswordController =
+        TextEditingController();
+    final TextEditingController nameController = TextEditingController();
+    final TextEditingController ageController = TextEditingController();
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(
@@ -76,18 +27,13 @@ class _SignUpState extends State<SignUp> {
       ),
       body: SizedBox.expand(
         child: Container(
-          padding: EdgeInsets.all(25),
-          decoration: BoxDecoration(
-            image: DecorationImage(
-              image: AssetImage('assets/sign_up/ff.png'),
-              fit: BoxFit.fill,
-            ),
-          ),
+          padding: EdgeInsets.all(5),
+          decoration: BoxDecoration(color: Colors.black),
           child: Center(
             child: Container(
-              padding: EdgeInsets.all(20),
+              padding: EdgeInsets.all(5),
               decoration: BoxDecoration(
-                color: Colors.white,
+                color: Colors.black,
                 borderRadius: BorderRadius.circular(15),
                 boxShadow: [
                   BoxShadow(
@@ -107,68 +53,73 @@ class _SignUpState extends State<SignUp> {
                       Text(
                         "Sign Up",
                         style: TextStyle(
-                          fontSize: 50,
+                          fontSize: 45,
                           fontWeight: FontWeight.bold,
-                          color: Color.fromARGB(255, 8, 84, 189),
+                          color: Color(0xffD5FF5F),
                         ),
                       ),
                       SizedBox(height: 20),
-                      textfiled_signup(
+                      textfiled_signupmoblie(
                         icon: Icons.email,
                         controller: emailController,
                         hint: "Email",
                         secrt: false,
                       ),
                       SizedBox(height: 10),
-                      textfiled_signup(
+                      textfiled_signupmoblie(
                         icon: Icons.lock,
                         controller: passwordController,
                         hint: "Password",
                         secrt: true,
                       ),
                       SizedBox(height: 10),
-                      textfiled_signup(
+                      textfiled_signupmoblie(
                         icon: Icons.lock_outline,
                         controller: hintPasswordController,
                         hint: "Confirm Password",
                         secrt: true,
                       ),
                       SizedBox(height: 10),
-                      textfiled_signup(
+                      textfiled_signupmoblie(
                         icon: Icons.person,
                         controller: nameController,
                         hint: "Your Name",
                         secrt: false,
                       ),
                       SizedBox(height: 10),
-                      textfiled_signup(
+                      textfiled_signupmoblie(
                         icon: Icons.cake,
                         controller: ageController,
                         hint: "Your Age",
                         secrt: false,
                       ),
                       SizedBox(height: 10),
-                      Container(
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(8),
-                          gradient: const LinearGradient(
-                            colors: [
-                              Color.fromARGB(255, 255, 255, 255),
-                              Color.fromARGB(255, 5, 176, 238),
-                              Color.fromARGB(255, 20, 0, 122),
-                            ],
-                          ),
+                      textfiled_signupmoblie(
+                        icon: Icons.height,
+                        controller: ageController,
+                        hint: "Your hight",
+                        secrt: false,
+                      ),
+                      SizedBox(height: 10),
+                      textfiled_signupmoblie(
+                        icon: Icons.fitness_center,
+                        controller: ageController,
+                        hint: "Your weight",
+                        secrt: false,
+                      ),
+                      SizedBox(height: 10),
+                      ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: Color(0xffD5FF5F),
+                          fixedSize: const Size(300, 50),
                         ),
-                        child: ElevatedButton(
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: Colors.transparent,
-                            fixedSize: const Size(300, 50),
-                          ),
-                          onPressed: onPressed,
-                          child: const Text(
-                            "Sign Up",
-                            style: TextStyle(fontSize: 18, color: Colors.white),
-                          ),
+                        onPressed: () {},
+                        child: const Text(
+                          "Creat account",
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 18,
+                              color: Color.fromARGB(255, 0, 0, 0)),
                         ),
                       ),
                       SizedBox(height: 20),
@@ -178,11 +129,11 @@ class _SignUpState extends State<SignUp> {
                         },
                         child: Text(
                           "Already have an account? Sign In",
-                          style: TextStyle(color: Colors.black),
+                          style: TextStyle(color: Color(0xffD5FF5F)),
                         ),
                       ),
                       Visibility(
-                        visible: visible,
+                        visible: false,
                         child: Text(
                           "Please fill in all fields.",
                           style: TextStyle(
@@ -200,5 +151,6 @@ class _SignUpState extends State<SignUp> {
         ),
       ),
     );
+    ;
   }
 }

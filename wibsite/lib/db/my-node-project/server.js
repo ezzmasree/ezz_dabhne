@@ -3,12 +3,52 @@ const app = express();
 const cors = require("cors");
 const mongoose = require("mongoose");
 const Product = require("./model/product");
+const nodemailer = require("nodemailer");
 app.use(cors());
 
 app.use(express.json());
+///////////          for email
+const transporter = nodemailer.createTransport({
+  service: "gmail",
+  auth: {
+    user: "s12011015@stu.najah.edu", // Your Gmail account
+    pass: "snrb bxxq soft kcyb", // Gmail app password
+  },
+});
+app.post("/send-email", (req, res) => {
+  const { to, subject, text } = req.body;
+
+  const mailOptions = {
+    from: "your-email@gmail.com",
+    to,
+    subject,
+    text,
+  };
+  transporter.sendMail(mailOptions, (error, info) => {
+    if (error) {
+      return res.status(500).send(error.toString());
+    }
+    res.status(200).send("Email sent: " + info.response);
+  });
+});
+
+///////////////////////
 app.get("/", (req, res) => {
   res.send("hello asool love u");
 });
+
+/////
+app.post("/users", async (req, res) => {
+  try {
+    const product = await Product.create(req.body);
+    // Product;
+
+    res.status(200).json(product);
+    console.log(error.massage);
+  } catch (eroor) {}
+});
+////////
+
 app.post("/pro", async (req, res) => {
   try {
     const product = await Product.create(req.body);

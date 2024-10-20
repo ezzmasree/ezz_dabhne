@@ -14,9 +14,13 @@ class singboton extends StatelessWidget {
         borderRadius: BorderRadius.circular(8),
         gradient: const LinearGradient(
           colors: [
-            Color.fromARGB(255, 237, 227, 240),
-            Color.fromARGB(255, 206, 82, 82),
-            Color.fromARGB(255, 248, 0, 0),
+            Color(0xff43011D),
+            // Color.fromARGB(255, 237, 227, 240),
+            Color.fromARGB(255, 168, 12, 77),
+
+            // Color.fromARGB(255, 206, 82, 82),
+            // Color.fromARGB(255, 248, 0, 0),
+            Color(0xff002C49),
           ],
         ),
       ),
