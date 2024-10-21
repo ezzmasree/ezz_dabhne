@@ -4,11 +4,12 @@ import 'dart:convert';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:wibsite/home_page/home.dart';
 import 'package:wibsite/sign_in/palet.dart';
 import 'package:wibsite/sign_in/singboton.dart';
 import 'package:wibsite/sign_in/textfiled.dart';
 import 'package:wibsite/sign_up/sign_up.dart';
-import 'package:wibsite/the_main_page/the_mainpage.dart';
+//import 'package:wibsite/the_main_page/the_mainpage.dart';
 
 class SignIn extends StatefulWidget {
   const SignIn({super.key});
@@ -64,7 +65,7 @@ class _SignInState extends State<SignIn> {
               _isVisible = false;
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => TheMainPage()),
+                MaterialPageRoute(builder: (context) => Home_Page()),
               );
             });
           } else {

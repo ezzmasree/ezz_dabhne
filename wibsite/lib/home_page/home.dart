@@ -6,7 +6,9 @@ import 'package:file_picker/file_picker.dart';
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:wibsite/home_page/account_page/account.dart';
+import 'package:wibsite/home_page/myHome.dart';
 
 class Home_Page extends StatelessWidget {
   const Home_Page({super.key});
@@ -180,16 +182,20 @@ class _MainPageState extends State<MainPage> {
                 label: 'Home',
               ),
               BottomNavigationBarItem(
-                icon: Icon(Icons.account_circle),
-                label: 'Account',
-              ),
-              BottomNavigationBarItem(
                 icon: Icon(Icons.restaurant_menu),
                 label: 'Meal',
               ),
               BottomNavigationBarItem(
-                icon: Icon(Icons.miscellaneous_services),
-                label: 'Service',
+                icon: Icon(FontAwesomeIcons.dumbbell),
+                label: 'Workout',
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.account_circle),
+                label: 'Account',
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.settings),
+                label: 'Setting',
               ),
             ],
           ),
@@ -201,7 +207,7 @@ class _MainPageState extends State<MainPage> {
   // Method to return the current page widget
   Widget _getBody() {
     if (_currentIndex == 0) {
-      return HomePage();
+      return MyHome();
     } else if (_currentIndex == 1) {
       return AccountPage();
     } else if (_currentIndex == 2) {
@@ -225,102 +231,6 @@ class HomePage extends StatelessWidget {
   }
 }
 
-<<<<<<< HEAD
-=======
-class AccountPage extends StatefulWidget {
-  const AccountPage({super.key});
-
-  @override
-  _AccountPageState createState() => _AccountPageState();
-}
-
-class _AccountPageState extends State<AccountPage> {
-  File? _selectedImage;
-
-  Future<void> _pickImage() async {
-    FilePickerResult? result = await FilePicker.platform.pickFiles(
-      type: FileType.image,
-      allowMultiple: false,
-    );
-
-    if (result != null) {
-      setState(() {
-        _selectedImage = File(result.files.single.path!);
-      });
-    }
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Color(0xff0A0C17),
-      appBar: AppBar(
-        title: Text('Account'),
-        backgroundColor: Color.fromARGB(255, 35, 33, 33),
-      ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Center(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              GestureDetector(
-                onTap: _pickImage, // Tapping the avatar allows image selection
-                child: CircleAvatar(
-                  radius: 50,
-                  backgroundImage: _selectedImage != null
-                      ? FileImage(_selectedImage!)
-                      : AssetImage('assets/images/user_avatar.png')
-                          as ImageProvider,
-                  child: _selectedImage == null
-                      ? Icon(
-                          Icons.camera_alt,
-                          color: Colors.white,
-                          size: 30,
-                        )
-                      : null,
-                ),
-              ),
-              SizedBox(height: 20),
-              Text(
-                'John Doe',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 24,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              SizedBox(height: 10),
-              Text(
-                'Email: johndoe@example.com',
-                style: TextStyle(
-                  color: Colors.grey,
-                  fontSize: 16,
-                ),
-              ),
-              SizedBox(height: 30),
-              ElevatedButton(
-                onPressed: () {
-                  // Add logout functionality or navigate to another page
-                },
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Color(0xffD5FF5F),
-                ),
-                child: Text(
-                  'Log Out',
-                  style: TextStyle(color: Colors.black),
-                ),
-              ),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-}
-
->>>>>>> e39ec953ac87bbd61da723003508e3b74bb87d50
 class MealPage extends StatelessWidget {
   const MealPage({super.key});
 

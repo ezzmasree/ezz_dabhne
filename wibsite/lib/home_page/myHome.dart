@@ -8,16 +8,16 @@ class MyHome extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xFF1c1c1e),
-      appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-      ),
+      // appBar: AppBar(
+      //   backgroundColor: Colors.transparent,
+      //   elevation: 0,
+      // ),
       body: const SingleChildScrollView(
         child: Padding(
           padding: EdgeInsets.all(20.0),
           child: Column(
             children: [
-              Header(),
+              // Header(),
               SizedBox(height: 20),
               StepsCard(),
               SizedBox(height: 20),
@@ -30,7 +30,8 @@ class MyHome extends StatelessWidget {
           ),
         ),
       ),
-      bottomNavigationBar: const BottomNavBar(), // Keep this fixed to the bottom
+      //   bottomNavigationBar:
+      //       const BottomNavBar(), // Keep this fixed to the bottom
     );
   }
 }
@@ -67,7 +68,8 @@ class Header extends StatelessWidget {
           ),
           child: const Padding(
             padding: EdgeInsets.all(8.0),
-            child: Icon(Icons.notifications, color: Color(0xFFb3ff00), size: 30),
+            child:
+                Icon(Icons.notifications, color: Color(0xFFb3ff00), size: 30),
           ),
         ),
       ],
@@ -89,12 +91,14 @@ class StepsCard extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Text('Steps', style: TextStyle(color: Colors.white, fontSize: 18)),
+          const Text('Steps',
+              style: TextStyle(color: Colors.white, fontSize: 18)),
           const SizedBox(height: 10),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              const Text('11 000 / 16 000', style: TextStyle(color: Colors.white)),
+              const Text('11 000 / 16 000',
+                  style: TextStyle(color: Colors.white)),
               Container(
                 width: 200,
                 height: 10,
@@ -120,9 +124,6 @@ class StepsCard extends StatelessWidget {
   }
 }
 
-
-
-
 class DailyActivityCard extends StatelessWidget {
   const DailyActivityCard({super.key});
 
@@ -135,14 +136,16 @@ class DailyActivityCard extends StatelessWidget {
         borderRadius: BorderRadius.circular(35),
       ),
       // Remove fixed height, or keep it if you want a maximum height
-       height: 220, 
+      height: 220,
       child: Row(
         children: [
-          Expanded( // Wrap the column in an Expanded widget
+          Expanded(
+            // Wrap the column in an Expanded widget
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Text('Daily Activity', style: TextStyle(color: Colors.white, fontSize: 18)),
+                const Text('Daily Activity',
+                    style: TextStyle(color: Colors.white, fontSize: 18)),
                 const SizedBox(height: 10),
                 buildActivityRow('Steps', '11 000', '16 000'),
                 buildActivityRow('Calories', '440', '680 Cal'),
@@ -150,7 +153,8 @@ class DailyActivityCard extends StatelessWidget {
               ],
             ),
           ),
-          Expanded( // Use Expanded for the image to take remaining space
+          Expanded(
+            // Use Expanded for the image to take remaining space
             child: SizedBox(
               // You can specify width for the gif if needed, height is now dynamic
               width: 200, // Set width for the gif image
@@ -175,11 +179,15 @@ class DailyActivityCard extends StatelessWidget {
             children: [
               TextSpan(
                 text: numerator,
-                style: const TextStyle(color: Color(0xFFd5ff5f), fontSize: 20), // Larger font for numerator
+                style: const TextStyle(
+                    color: Color(0xFFd5ff5f),
+                    fontSize: 20), // Larger font for numerator
               ),
               TextSpan(
                 text: ' / $denominator',
-                style: const TextStyle(color: Color(0xFFd5ff5f), fontSize: 16), // Smaller font for denominator
+                style: const TextStyle(
+                    color: Color(0xFFd5ff5f),
+                    fontSize: 16), // Smaller font for denominator
               ),
             ],
           ),
@@ -188,9 +196,6 @@ class DailyActivityCard extends StatelessWidget {
     );
   }
 }
-
-
-
 
 class WorkoutsCard extends StatelessWidget {
   const WorkoutsCard({super.key});
@@ -232,7 +237,12 @@ class WorkoutItem extends StatelessWidget {
   final String distance;
   final String time;
 
-  const WorkoutItem({super.key, required this.icon, required this.title, required this.distance, required this.time});
+  const WorkoutItem(
+      {super.key,
+      required this.icon,
+      required this.title,
+      required this.distance,
+      required this.time});
 
   @override
   Widget build(BuildContext context) {
@@ -245,14 +255,17 @@ class WorkoutItem extends StatelessWidget {
       ),
       child: Row(
         children: [
-          Icon(icon, color: const Color(0xFFd5ff5f), size: 30), // Changed to the new color
+          Icon(icon,
+              color: const Color(0xFFd5ff5f),
+              size: 30), // Changed to the new color
           const SizedBox(width: 15),
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(title, style: const TextStyle(color: Colors.white)),
-                Text(distance, style: const TextStyle(color: Colors.white, fontSize: 16)),
+                Text(distance,
+                    style: const TextStyle(color: Colors.white, fontSize: 16)),
               ],
             ),
           ),
@@ -278,30 +291,40 @@ class FoodTrackerCard extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Text('Food', style: TextStyle(color: Colors.white, fontSize: 18)),
+          const Text('Food',
+              style: TextStyle(color: Colors.white, fontSize: 18)),
           const SizedBox(height: 10),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              const Text('243 / 1 858 Cal', style: TextStyle(color: Colors.white, fontSize: 24, fontWeight: FontWeight.bold)),
+              const Text('243 / 1 858 Cal',
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 24,
+                      fontWeight: FontWeight.bold)),
               ElevatedButton(
                 onPressed: () {},
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color(0xFFd5ff5f), // Changed to the new color
+                  backgroundColor:
+                      const Color(0xFFd5ff5f), // Changed to the new color
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(20),
                   ),
                 ),
-                child: const Text('Record', style: TextStyle(color: Colors.black)),
+                child:
+                    const Text('Record', style: TextStyle(color: Colors.black)),
               ),
             ],
           ),
           const SizedBox(height: 20),
-          const Text('Meal Tips', style: TextStyle(color: Colors.white, fontSize: 18)),
+          const Text('Meal Tips',
+              style: TextStyle(color: Colors.white, fontSize: 18)),
           const SizedBox(height: 10),
           const MealTips(),
           const SizedBox(height: 10),
-          const Text('See All', style: TextStyle(color: Color(0xFFd5ff5f))), // Changed to the new color
+          const Text('See All',
+              style: TextStyle(
+                  color: Color(0xFFd5ff5f))), // Changed to the new color
         ],
       ),
     );
@@ -317,13 +340,15 @@ class MealTips extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         MealTip(
-          imageUrl: 'https://storage.googleapis.com/a1aa/image/gnvoA41CfkUAbakxw34i8cgI5Y97vnHmf5TYVYr4COAZ6toTA.jpg',
+          imageUrl:
+              'https://storage.googleapis.com/a1aa/image/gnvoA41CfkUAbakxw34i8cgI5Y97vnHmf5TYVYr4COAZ6toTA.jpg',
           title: 'Roasted Shrimp Kale Salad with Grapefruit...',
           time: '30 min',
           calories: '626 Cal',
         ),
         MealTip(
-          imageUrl: 'https://storage.googleapis.com/a1aa/image/ZdquE3zzDSqNL1FK44NQSkCnbKixBJG2fzTZA75wpZbN9W0JA.jpg',
+          imageUrl:
+              'https://storage.googleapis.com/a1aa/image/ZdquE3zzDSqNL1FK44NQSkCnbKixBJG2fzTZA75wpZbN9W0JA.jpg',
           title: 'Homemade Huevos Rancheros',
           time: '40 min',
           calories: '481 Cal',
@@ -339,7 +364,12 @@ class MealTip extends StatelessWidget {
   final String time;
   final String calories;
 
-  const MealTip({super.key, required this.imageUrl, required this.title, required this.time, required this.calories});
+  const MealTip(
+      {super.key,
+      required this.imageUrl,
+      required this.title,
+      required this.time,
+      required this.calories});
 
   @override
   Widget build(BuildContext context) {
@@ -363,29 +393,38 @@ class MealTip extends StatelessWidget {
               height: 60,
               decoration: const BoxDecoration(
                 color: Colors.black54,
-                borderRadius: BorderRadius.vertical(bottom: Radius.circular(35)),
+                borderRadius:
+                    BorderRadius.vertical(bottom: Radius.circular(35)),
               ),
               padding: const EdgeInsets.all(8),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(title, style: const TextStyle(color: Colors.white, fontSize: 12), overflow: TextOverflow.ellipsis),
+                  Text(title,
+                      style: const TextStyle(color: Colors.white, fontSize: 12),
+                      overflow: TextOverflow.ellipsis),
                   const SizedBox(height: 5),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Row(
                         children: [
-                          const Icon(FontAwesomeIcons.clock, color: Colors.white, size: 12),
+                          const Icon(FontAwesomeIcons.clock,
+                              color: Colors.white, size: 12),
                           const SizedBox(width: 5),
-                          Text(time, style: const TextStyle(color: Colors.white, fontSize: 12)),
+                          Text(time,
+                              style: const TextStyle(
+                                  color: Colors.white, fontSize: 12)),
                         ],
                       ),
                       Row(
                         children: [
-                          const Icon(FontAwesomeIcons.fire, color: Colors.white, size: 12),
+                          const Icon(FontAwesomeIcons.fire,
+                              color: Colors.white, size: 12),
                           const SizedBox(width: 5),
-                          Text(calories, style: const TextStyle(color: Colors.white, fontSize: 12)),
+                          Text(calories,
+                              style: const TextStyle(
+                                  color: Colors.white, fontSize: 12)),
                         ],
                       ),
                     ],
@@ -416,11 +455,13 @@ class BottomNavBar extends StatelessWidget {
           ),
           IconButton(
             onPressed: () {},
-            icon: const Icon(FontAwesomeIcons.codeFork, color: Colors.white), // Meal icon
+            icon: const Icon(FontAwesomeIcons.codeFork,
+                color: Colors.white), // Meal icon
           ),
           IconButton(
             onPressed: () {},
-            icon: const Icon(FontAwesomeIcons.dumbbell, color: Color(0xFFc4ff00), size: 30),
+            icon: const Icon(FontAwesomeIcons.dumbbell,
+                color: Color(0xFFc4ff00), size: 30),
           ),
           IconButton(
             onPressed: () {},
@@ -428,7 +469,8 @@ class BottomNavBar extends StatelessWidget {
           ),
           IconButton(
             onPressed: () {},
-            icon: const Icon(Icons.account_circle, color: Colors.white), // Profile icon
+            icon: const Icon(Icons.account_circle,
+                color: Colors.white), // Profile icon
           ),
         ],
       ),

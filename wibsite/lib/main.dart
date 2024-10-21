@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:wibsite/home_page/home.dart';
+import 'package:wibsite/sign_up_moblie/sign_upmoblie.dart';
 //import 'package:wibsite/db/mongo.dart';
 
 import 'home_page/myHome.dart';
@@ -19,7 +21,7 @@ class MainApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: Home_Page(),
       //home: TheMainPage(),
-      //  home: SignUpmoblie(),
+      //home: SignUpmoblie(),
     );
   }
 }
