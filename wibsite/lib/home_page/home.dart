@@ -18,6 +18,8 @@ class Home_Page extends StatelessWidget {
 }
 
 class MainPage extends StatefulWidget {
+  const MainPage({super.key});
+
   @override
   _MainPageState createState() => _MainPageState();
 }
@@ -90,6 +92,8 @@ class _MainPageState extends State<MainPage> {
 }
 
 class HomePage extends StatelessWidget {
+  const HomePage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -99,6 +103,8 @@ class HomePage extends StatelessWidget {
 }
 
 class AccountPage extends StatefulWidget {
+  const AccountPage({super.key});
+
   @override
   _AccountPageState createState() => _AccountPageState();
 }
@@ -190,6 +196,8 @@ class _AccountPageState extends State<AccountPage> {
 }
 
 class MealPage extends StatelessWidget {
+  const MealPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -199,6 +207,8 @@ class MealPage extends StatelessWidget {
 }
 
 class ServicePage extends StatelessWidget {
+  const ServicePage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Center(

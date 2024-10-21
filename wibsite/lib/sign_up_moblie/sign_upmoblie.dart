@@ -19,7 +19,7 @@ class SignUpmoblie extends StatelessWidget {
         backgroundColor: Colors.transparent,
         elevation: 0,
         leading: IconButton(
-          icon: Icon(Icons.arrow_back, color: Colors.black),
+          icon: const Icon(Icons.arrow_back, color: Colors.black),
           onPressed: () {
             Navigator.pop(context);
           },
@@ -27,16 +27,16 @@ class SignUpmoblie extends StatelessWidget {
       ),
       body: SizedBox.expand(
         child: Container(
-          padding: EdgeInsets.all(5),
-          decoration: BoxDecoration(color: Colors.black),
+          padding: const EdgeInsets.all(5),
+          decoration: const BoxDecoration(color: Colors.black),
           child: Center(
             child: Container(
-              padding: EdgeInsets.all(5),
+              padding: const EdgeInsets.all(5),
               decoration: BoxDecoration(
                 color: Colors.black,
                 borderRadius: BorderRadius.circular(15),
                 boxShadow: [
-                  BoxShadow(
+                  const BoxShadow(
                     color: Colors.black26,
                     blurRadius: 10,
                     offset: Offset(0, 2),
@@ -45,12 +45,12 @@ class SignUpmoblie extends StatelessWidget {
               ),
               child: SingleChildScrollView(
                 child: Container(
-                  padding: EdgeInsets.only(left: 60, right: 60),
+                  padding: const EdgeInsets.only(left: 60, right: 60),
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      Text(
+                      const Text(
                         "Sign Up",
                         style: TextStyle(
                           fontSize: 45,
@@ -58,59 +58,59 @@ class SignUpmoblie extends StatelessWidget {
                           color: Color(0xffD5FF5F),
                         ),
                       ),
-                      SizedBox(height: 20),
+                      const SizedBox(height: 20),
                       textfiled_signupmoblie(
                         icon: Icons.email,
                         controller: emailController,
                         hint: "Email",
                         secrt: false,
                       ),
-                      SizedBox(height: 10),
+                      const SizedBox(height: 10),
                       textfiled_signupmoblie(
                         icon: Icons.lock,
                         controller: passwordController,
                         hint: "Password",
                         secrt: true,
                       ),
-                      SizedBox(height: 10),
+                      const SizedBox(height: 10),
                       textfiled_signupmoblie(
                         icon: Icons.lock_outline,
                         controller: hintPasswordController,
                         hint: "Confirm Password",
                         secrt: true,
                       ),
-                      SizedBox(height: 10),
+                      const SizedBox(height: 10),
                       textfiled_signupmoblie(
                         icon: Icons.person,
                         controller: nameController,
                         hint: "Your Name",
                         secrt: false,
                       ),
-                      SizedBox(height: 10),
+                      const SizedBox(height: 10),
                       textfiled_signupmoblie(
                         icon: Icons.cake,
                         controller: ageController,
                         hint: "Your Age",
                         secrt: false,
                       ),
-                      SizedBox(height: 10),
+                      const SizedBox(height: 10),
                       textfiled_signupmoblie(
                         icon: Icons.height,
                         controller: ageController,
                         hint: "Your hight",
                         secrt: false,
                       ),
-                      SizedBox(height: 10),
+                      const SizedBox(height: 10),
                       textfiled_signupmoblie(
                         icon: Icons.fitness_center,
                         controller: ageController,
                         hint: "Your weight",
                         secrt: false,
                       ),
-                      SizedBox(height: 10),
+                      const SizedBox(height: 10),
                       ElevatedButton(
                         style: ElevatedButton.styleFrom(
-                          backgroundColor: Color(0xffD5FF5F),
+                          backgroundColor: const Color(0xffD5FF5F),
                           fixedSize: const Size(300, 50),
                         ),
                         onPressed: () {},
@@ -122,17 +122,17 @@ class SignUpmoblie extends StatelessWidget {
                               color: Color.fromARGB(255, 0, 0, 0)),
                         ),
                       ),
-                      SizedBox(height: 20),
+                      const SizedBox(height: 20),
                       TextButton(
                         onPressed: () {
                           Navigator.pop(context);
                         },
-                        child: Text(
+                        child: const Text(
                           "Already have an account? Sign In",
-                          style: TextStyle(color: Color(0xffD5FF5F)),
+                          style: TextStyle(color: const Color(0xffD5FF5F)),
                         ),
                       ),
-                      Visibility(
+                      const Visibility(
                         visible: false,
                         child: Text(
                           "Please fill in all fields.",

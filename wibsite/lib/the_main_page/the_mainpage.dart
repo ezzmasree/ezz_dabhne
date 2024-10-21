@@ -22,9 +22,6 @@ class _TheMainPageState extends State<TheMainPage> {
 
   double width = kIsWeb ? 290 : 40;
   Widget build(BuildContext context) {
-<<<<<<< HEAD
-    return const Scaffold();
-=======
     return Scaffold(
       appBar: AppBar(
         iconTheme: const IconThemeData(color: Colors.white),
@@ -208,6 +205,5 @@ class _TheMainPageState extends State<TheMainPage> {
         ),
       ),
     );
->>>>>>> 21e5f5842b6b4872035a22b81792dfd343f55fc6
   }
 }

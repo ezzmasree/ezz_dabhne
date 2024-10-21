@@ -4,6 +4,7 @@ import 'package:flutter/widgets.dart';
 // ignore: unused_import
 import 'package:wibsite/sign_in/palet.dart';
 
+// ignore: camel_case_types
 class textfiled_signup extends StatelessWidget {
   final String hint;
   final TextEditingController controller;
@@ -23,7 +24,7 @@ class textfiled_signup extends StatelessWidget {
       child: TextFormField(
         obscureText: secrt,
         controller: controller,
-        style: TextStyle(color: Color.fromARGB(255, 0, 24, 145)),
+        style: const TextStyle(color: Color.fromARGB(255, 0, 24, 145)),
         decoration: InputDecoration(
             prefixIcon: Icon(
               icon,
