@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 // import 'package:log/palet.dart';
-import 'package:wibsite/sign_in/palet.dart';
 
 class singboton extends StatelessWidget {
   final void Function()? onPressed;

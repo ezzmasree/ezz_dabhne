@@ -68,7 +68,7 @@ class _SignUpState extends State<SignUp> {
         backgroundColor: Colors.transparent,
         elevation: 0,
         leading: IconButton(
-          icon: Icon(Icons.arrow_back, color: Colors.black),
+          icon: const Icon(Icons.arrow_back, color: Colors.black),
           onPressed: () {
             Navigator.pop(context);
           },
@@ -76,8 +76,8 @@ class _SignUpState extends State<SignUp> {
       ),
       body: SizedBox.expand(
         child: Container(
-          padding: EdgeInsets.all(25),
-          decoration: BoxDecoration(
+          padding: const EdgeInsets.all(25),
+          decoration: const BoxDecoration(
             image: DecorationImage(
               image: AssetImage('assets/sign_up/ff.png'),
               fit: BoxFit.fill,
@@ -85,12 +85,12 @@ class _SignUpState extends State<SignUp> {
           ),
           child: Center(
             child: Container(
-              padding: EdgeInsets.all(20),
+              padding: const EdgeInsets.all(20),
               decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(15),
                 boxShadow: [
-                  BoxShadow(
+                  const BoxShadow(
                     color: Colors.black26,
                     blurRadius: 10,
                     offset: Offset(0, 2),
@@ -99,12 +99,12 @@ class _SignUpState extends State<SignUp> {
               ),
               child: SingleChildScrollView(
                 child: Container(
-                  padding: EdgeInsets.only(left: 60, right: 60),
+                  padding: const EdgeInsets.only(left: 60, right: 60),
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      Text(
+                      const Text(
                         "Sign Up",
                         style: TextStyle(
                           fontSize: 50,
@@ -112,42 +112,42 @@ class _SignUpState extends State<SignUp> {
                           color: Color.fromARGB(255, 8, 84, 189),
                         ),
                       ),
-                      SizedBox(height: 20),
+                      const SizedBox(height: 20),
                       textfiled_signup(
                         icon: Icons.email,
                         controller: emailController,
                         hint: "Email",
                         secrt: false,
                       ),
-                      SizedBox(height: 10),
+                      const SizedBox(height: 10),
                       textfiled_signup(
                         icon: Icons.lock,
                         controller: passwordController,
                         hint: "Password",
                         secrt: true,
                       ),
-                      SizedBox(height: 10),
+                      const SizedBox(height: 10),
                       textfiled_signup(
                         icon: Icons.lock_outline,
                         controller: hintPasswordController,
                         hint: "Confirm Password",
                         secrt: true,
                       ),
-                      SizedBox(height: 10),
+                      const SizedBox(height: 10),
                       textfiled_signup(
                         icon: Icons.person,
                         controller: nameController,
                         hint: "Your Name",
                         secrt: false,
                       ),
-                      SizedBox(height: 10),
+                      const SizedBox(height: 10),
                       textfiled_signup(
                         icon: Icons.cake,
                         controller: ageController,
                         hint: "Your Age",
                         secrt: false,
                       ),
-                      SizedBox(height: 10),
+                      const SizedBox(height: 10),
                       Container(
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(8),
@@ -171,19 +171,19 @@ class _SignUpState extends State<SignUp> {
                           ),
                         ),
                       ),
-                      SizedBox(height: 20),
+                      const SizedBox(height: 20),
                       TextButton(
                         onPressed: () {
                           Navigator.pop(context);
                         },
-                        child: Text(
+                        child: const Text(
                           "Already have an account? Sign In",
                           style: TextStyle(color: Colors.black),
                         ),
                       ),
                       Visibility(
                         visible: visible,
-                        child: Text(
+                        child: const Text(
                           "Please fill in all fields.",
                           style: TextStyle(
                             color: Colors.red,

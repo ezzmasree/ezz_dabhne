@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+// ignore: unused_import
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:wibsite/sign_in/palet.dart';
 // import 'package:log/palet.dart';
@@ -20,7 +21,7 @@ class textfeld extends StatelessWidget {
     return ConstrainedBox(
       constraints: const BoxConstraints(maxWidth: 380),
       child: TextFormField(
-        obscureText: this.secrt,
+        obscureText: secrt,
         controller: controller,
         decoration: InputDecoration(
             prefixIcon: Icon(

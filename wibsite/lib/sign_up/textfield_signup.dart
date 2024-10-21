@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+// ignore: unnecessary_import
 import 'package:flutter/widgets.dart';
+// ignore: unused_import
 import 'package:wibsite/sign_in/palet.dart';
 
+// ignore: camel_case_types
 class textfiled_signup extends StatelessWidget {
   final String hint;
   final TextEditingController controller;
@@ -19,9 +22,9 @@ class textfiled_signup extends StatelessWidget {
     return ConstrainedBox(
       constraints: const BoxConstraints(maxWidth: 350, maxHeight: 55),
       child: TextFormField(
-        obscureText: this.secrt,
+        obscureText: secrt,
         controller: controller,
-        style: TextStyle(color: Color.fromARGB(255, 0, 24, 145)),
+        style: const TextStyle(color: Color.fromARGB(255, 0, 24, 145)),
         decoration: InputDecoration(
             prefixIcon: Icon(
               icon,
@@ -34,7 +37,7 @@ class textfiled_signup extends StatelessWidget {
             // ),
             hintText: hint,
             // labelStyle: TextStyle(color: Colors.white),
-            hintStyle: TextStyle(
+            hintStyle: const TextStyle(
                 fontWeight: FontWeight.bold,
                 color: Color.fromARGB(255, 8, 84, 189)),
             contentPadding: const EdgeInsets.all(25),

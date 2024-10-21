@@ -25,8 +25,8 @@ class Welcome extends StatelessWidget {
           child: Stack(
             children: [
               Positioned(
-                child: bot(context), // Pass context here
                 bottom: 0,
+                child: bot(context),
               )
             ],
           ),

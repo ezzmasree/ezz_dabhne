@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, avoid_print
 
 import 'dart:convert';
 import 'package:flutter/gestures.dart';
@@ -133,7 +133,7 @@ class _SignInState extends State<SignIn> {
                 color: Colors.black54
                     .withOpacity(0.7), // Background color with opacity
                 borderRadius: BorderRadius.circular(15),
-                boxShadow: [
+                boxShadow: const [
                   BoxShadow(
                     color: Colors.black,
                     blurRadius: 10,
@@ -152,7 +152,7 @@ class _SignInState extends State<SignIn> {
                         fontWeight: FontWeight.bold,
                         foreground: Paint()
                           ..shader = LinearGradient(
-                            colors: <Color>[
+                            colors: const <Color>[
                               Color(0xff43011D),
                               Color.fromARGB(255, 25, 159, 248),
                             ],
@@ -202,6 +202,7 @@ class _SignInState extends State<SignIn> {
                     // Text("Rigister"),
                     Visibility(
                       visible: _isVisible,
+                      // ignore: duplicate_ignore
                       // ignore: prefer_const_constructors
                       child: Text(
                         "Wrong password or email",

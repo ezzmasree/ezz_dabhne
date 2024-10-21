@@ -5,6 +5,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 // import 'package:log/palet.dart';
 import 'package:wibsite/sign_in/palet.dart';
 
+// ignore: camel_case_types
 class boton extends StatelessWidget {
   final String text;
   final String path;
