@@ -23,9 +23,9 @@ class MainApp extends StatelessWidget {
     return const MaterialApp(
       title: "ezz masre",
       debugShowCheckedModeBanner: false,
-      //home: Home_Page(),
+      home: Home_Page(),
       //home: TheMainPage(),
-      home: SignUpmoblie(),
+      //  home: SignUpmoblie(),
     );
   }
 }

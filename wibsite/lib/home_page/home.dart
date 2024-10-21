@@ -6,12 +6,14 @@ import 'package:file_picker/file_picker.dart';
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:wibsite/home_page/account_page/account.dart';
 
 class Home_Page extends StatelessWidget {
   const Home_Page({super.key});
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: MainPage(),
     );
   }
@@ -27,7 +29,128 @@ class _MainPageState extends State<MainPage> {
 
   @override
   Widget build(BuildContext context) {
+    Widget _createDrawerItem(
+        {required IconData icon,
+        required String text,
+        required VoidCallback onTap,
+        Color? color}) {
+      return ListTile(
+        leading: Icon(icon, color: color ?? Color(0xffD5FF5F)),
+        title: Text(
+          text,
+          style: TextStyle(
+            color: Colors.white,
+            fontSize: 18,
+            fontWeight: FontWeight.w500,
+          ),
+        ),
+        contentPadding: EdgeInsets.symmetric(horizontal: 20),
+        onTap: onTap,
+      );
+    }
+
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Color(0xff0A0C17),
+        title: Text('Home Page', style: TextStyle(color: Color(0xffD5FF5F))),
+        leading: Builder(
+          builder: (context) => IconButton(
+            icon: Icon(
+              Icons.menu,
+              color: Color(0xffD5FF5F),
+            ), // Custom menu icon
+            onPressed: () {
+              Scaffold.of(context)
+                  .openDrawer(); // Open the drawer using the right context
+            },
+          ),
+        ),
+      ),
+      drawer: Drawer(
+        backgroundColor: Color(0xff1F1F28), // Darker background for the drawer
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: <Widget>[
+            DrawerHeader(
+              decoration: BoxDecoration(
+                color: Color(0xff25252D), // Slightly lighter header background
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black.withOpacity(0.5),
+                    spreadRadius: 5,
+                    blurRadius: 10,
+                  )
+                ],
+              ),
+              child: Align(
+                alignment: Alignment.bottomLeft,
+                child: Text(
+                  'Dabhne Fitness',
+                  style: TextStyle(
+                    color: Color(0xffD5FF5F),
+                    fontSize: 28,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+            ),
+            _createDrawerItem(
+              icon: Icons.home_outlined,
+              text: 'Home',
+              onTap: () {
+                Navigator.pop(context);
+              },
+            ),
+            _createDrawerItem(
+              icon: Icons.account_circle_outlined,
+              text: 'Account',
+              onTap: () {
+                Navigator.pop(context);
+              },
+            ),
+            _createDrawerItem(
+              icon: Icons.settings_outlined,
+              text: 'Settings',
+              onTap: () {
+                Navigator.pop(context);
+              },
+            ),
+            Divider(color: Colors.grey.shade600, thickness: 1),
+            _createDrawerItem(
+              icon: Icons.description_outlined,
+              text: 'Terms and Conditions',
+              onTap: () {
+                Navigator.pop(context);
+              },
+            ),
+            _createDrawerItem(
+              icon: Icons.feedback_outlined,
+              text: 'Give Us Feedback',
+              onTap: () {
+                Navigator.pop(context);
+              },
+            ),
+            _createDrawerItem(
+              icon: Icons.support_agent_outlined,
+              text: 'Support',
+              onTap: () {
+                Navigator.pop(context);
+              },
+            ),
+            Divider(color: Colors.grey.shade600, thickness: 1),
+            _createDrawerItem(
+              icon: Icons.logout,
+              text: 'Log Out',
+              color: Colors
+                  .redAccent, // Red color for log out to make it stand out
+              onTap: () {
+                // Log out action here
+                Navigator.pop(context);
+              },
+            ),
+          ],
+        ),
+      ),
       backgroundColor: Color(0xff0A0C17),
       body: _getBody(),
       bottomNavigationBar: Padding(
@@ -94,97 +217,6 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: Text('Welcome to the Home Page!'),
-    );
-  }
-}
-
-class AccountPage extends StatefulWidget {
-  @override
-  _AccountPageState createState() => _AccountPageState();
-}
-
-class _AccountPageState extends State<AccountPage> {
-  File? _selectedImage;
-
-  Future<void> _pickImage() async {
-    FilePickerResult? result = await FilePicker.platform.pickFiles(
-      type: FileType.image,
-      allowMultiple: false,
-    );
-
-    if (result != null) {
-      setState(() {
-        _selectedImage = File(result.files.single.path!);
-      });
-    }
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Color(0xff0A0C17),
-      appBar: AppBar(
-        title: Text('Account'),
-        backgroundColor: Color.fromARGB(255, 35, 33, 33),
-      ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Center(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              GestureDetector(
-                onTap: _pickImage, // Tapping the avatar allows image selection
-                child: CircleAvatar(
-                  radius: 50,
-                  backgroundImage: _selectedImage != null
-                      ? FileImage(_selectedImage!)
-                      : AssetImage('assets/images/user_avatar.png')
-                          as ImageProvider,
-                  child: _selectedImage == null
-                      ? Icon(
-                          Icons.camera_alt,
-                          color: Colors.white,
-                          size: 30,
-                        )
-                      : null,
-                ),
-              ),
-              SizedBox(height: 20),
-              Text(
-                'John Doe',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 24,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              SizedBox(height: 10),
-              Text(
-                'Email: johndoe@example.com',
-                style: TextStyle(
-                  color: Colors.grey,
-                  fontSize: 16,
-                ),
-              ),
-              SizedBox(height: 30),
-              ElevatedButton(
-                onPressed: () {
-                  // Add logout functionality or navigate to another page
-                },
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Color(0xffD5FF5F),
-                ),
-                child: Text(
-                  'Log Out',
-                  style: TextStyle(color: Colors.black),
-                ),
-              ),
-            ],
-          ),
-        ),
-      ),
     );
   }
 }
