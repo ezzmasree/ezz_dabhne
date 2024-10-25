@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, dead_code
 import 'dart:typed_data';
 
 import 'package:file_picker/file_picker.dart';
@@ -9,6 +9,10 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:wibsite/home_page/account_page/account.dart';
 import 'package:wibsite/home_page/myHome.dart';
+import 'package:wibsite/home_page/setting_page/setting.dart';
+import 'package:wibsite/home_page/workout.dart/workouticon.dart';
+import 'package:wibsite/saving_data/save_data.dart';
+import 'package:wibsite/sign_inmoblie/signin_moblie.dart';
 
 class Home_Page extends StatelessWidget {
   const Home_Page({super.key});
@@ -31,7 +35,23 @@ class MainPage extends StatefulWidget {
 class _MainPageState extends State<MainPage> {
   int _currentIndex = 0;
 
+  String? savedString;
+
   @override
+  void initState() {
+    super.initState();
+    loadString();
+    print("hello $savedString "); // Load the saved string when the page loads
+  }
+
+  Future<void> loadString() async {
+    String? data = await getString(); // Get the string from SharedPreferences
+    setState(() {
+      savedString = data;
+      // Update the UI with the retrieved data
+    });
+  }
+
   Widget build(BuildContext context) {
     Widget _createDrawerItem(
         {required IconData icon,
@@ -55,8 +75,9 @@ class _MainPageState extends State<MainPage> {
 
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color(0xff0A0C17),
-        title: Text('Home Page', style: TextStyle(color: Color(0xffD5FF5F))),
+        backgroundColor: Color(0xff1E1E25),
+        title: Text('Home Page $savedString',
+            style: TextStyle(color: Color(0xffD5FF5F))),
         leading: Builder(
           builder: (context) => IconButton(
             icon: Icon(
@@ -149,7 +170,10 @@ class _MainPageState extends State<MainPage> {
                   .redAccent, // Red color for log out to make it stand out
               onTap: () {
                 // Log out action here
-                Navigator.pop(context);
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => signin_mobilState()),
+                );
               },
             ),
           ],
@@ -167,7 +191,15 @@ class _MainPageState extends State<MainPage> {
             currentIndex: _currentIndex,
             onTap: (index) {
               setState(() {
-                _currentIndex = index; // Update the selected index
+                _currentIndex = index;
+                if (_currentIndex == 4) {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) =>
+                            Setting()), // Replace with your target page
+                  );
+                } // Update the selected index
               });
             },
             selectedItemColor: Color(0xffD5FF5F),
@@ -211,8 +243,10 @@ class _MainPageState extends State<MainPage> {
     } else if (_currentIndex == 1) {
       return AccountPage();
     } else if (_currentIndex == 2) {
-      return MealPage();
+      return workout();
     } else if (_currentIndex == 3) {
+      return ServicePage();
+    } else if (_currentIndex == 4) {
       return ServicePage();
     } else {
       return Center(child: Text('Select a page'));

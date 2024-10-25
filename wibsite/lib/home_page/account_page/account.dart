@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:http/http.dart' as http;
+import 'package:wibsite/home_page/account_page/Edit.dart';
 
 class AccountPage extends StatefulWidget {
   @override
@@ -49,10 +50,20 @@ class _AccountPageState extends State<AccountPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color(0xff0A0C17),
-      // appBar: AppBar(
-      //   title: Text('Account'),
-      //   // backgroundColor: Color.fromARGB(255, 35, 33, 33),
-      // ),
+      appBar: AppBar(
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back, color: Color(0xffD5FF5F)),
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
+        backgroundColor: Color(0xff0A0C17),
+        title: Text(
+          'Account',
+          style: TextStyle(color: Colors.white),
+        ),
+        // backgroundColor: Color.fromARGB(255, 35, 33, 33),
+      ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Center(
@@ -83,7 +94,7 @@ class _AccountPageState extends State<AccountPage> {
                   Icon(Icons.person, color: Colors.white),
                   SizedBox(width: 10),
                   Text(
-                    'name: $name',
+                    'Name: $name',
                     style: TextStyle(
                       color: Colors.white,
                       fontSize: 24,
@@ -116,7 +127,7 @@ class _AccountPageState extends State<AccountPage> {
                   Icon(Icons.lock, color: Colors.grey),
                   SizedBox(width: 10),
                   Text(
-                    'password: $password',
+                    'Password: $password',
                     style: TextStyle(
                       color: Colors.grey,
                       fontSize: 24,
@@ -132,7 +143,7 @@ class _AccountPageState extends State<AccountPage> {
                   Icon(Icons.cake, color: Colors.grey),
                   SizedBox(width: 10),
                   Text(
-                    'age: $age',
+                    'Age: $age',
                     style: TextStyle(
                       color: Colors.grey,
                       fontSize: 24,
@@ -148,7 +159,23 @@ class _AccountPageState extends State<AccountPage> {
                   Icon(Icons.monitor_weight, color: Colors.grey),
                   SizedBox(width: 10),
                   Text(
-                    'weight: $weaight', // Fix typo from 'weaight' to 'weight'
+                    'Weight: $weaight', // Fix typo from 'weaight' to 'weight'
+                    style: TextStyle(
+                      color: Colors.grey,
+                      fontSize: 24,
+                    ),
+                  ),
+                ],
+              ),
+              SizedBox(height: 10),
+              Row(
+                // mainAxisAlignment:
+                //     MainAxisAlignment.center, // Center Row contents
+                children: [
+                  Icon(Icons.height, color: Colors.grey),
+                  SizedBox(width: 10),
+                  Text(
+                    'Hight: $weaight', // Fix typo from 'weaight' to 'weight'
                     style: TextStyle(
                       color: Colors.grey,
                       fontSize: 24,
@@ -157,17 +184,42 @@ class _AccountPageState extends State<AccountPage> {
                 ],
               ),
               SizedBox(height: 30),
-              ElevatedButton(
-                onPressed: () {
-                  // Add logout functionality or navigate to another page
-                },
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Color(0xffD5FF5F),
-                ),
-                child: Text(
-                  'Log Out',
-                  style: TextStyle(color: Colors.black),
-                ),
+              Row(
+                children: [
+                  ElevatedButton(
+                    onPressed: () {
+                      // Add logout functionality or navigate to another page
+                    },
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Color(0xffD5FF5F),
+                    ),
+                    child: Text(
+                      'Log Out',
+                      style: TextStyle(color: Colors.black),
+                    ),
+                  ),
+                  SizedBox(
+                    width: 5,
+                  ),
+                  ElevatedButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) =>
+                                Edit()), // Replace with your target page
+                      );
+                      // Add logout functionality or navigate to another page
+                    },
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Color(0xffD5FF5F),
+                    ),
+                    child: Text(
+                      'Edit Profile',
+                      style: TextStyle(color: Colors.black),
+                    ),
+                  ),
+                ],
               ),
             ],
           ),

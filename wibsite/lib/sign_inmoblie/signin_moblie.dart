@@ -1,12 +1,21 @@
 import 'package:flutter/material.dart';
-import 'package:wibsite/sign_inmoblie/signin_moblie.dart';
-import 'package:wibsite/sign_up/textfield_signup.dart';
+import 'package:wibsite/home_page/home.dart';
+import 'package:wibsite/saving_data/save_data.dart';
+
+import 'package:wibsite/sign_up_moblie/sign_upmoblie.dart';
 import 'package:wibsite/sign_up_moblie/textfield_signup.dart';
 
-class SignUpmoblie extends StatelessWidget {
-  const SignUpmoblie({super.key});
+class signin_mobilState extends StatefulWidget {
+  const signin_mobilState({super.key});
 
   @override
+  State<signin_mobilState> createState() => __signin_mobilStateState();
+}
+
+class __signin_mobilStateState extends State<signin_mobilState> {
+  @override
+  String? savedString;
+
   Widget build(BuildContext context) {
     final TextEditingController emailController = TextEditingController();
     final TextEditingController passwordController = TextEditingController();
@@ -52,7 +61,7 @@ class SignUpmoblie extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       const Text(
-                        "Sign Up",
+                        "Sign ein",
                         style: TextStyle(
                           fontSize: 45,
                           fontWeight: FontWeight.bold,
@@ -73,68 +82,40 @@ class SignUpmoblie extends StatelessWidget {
                         hint: "Password",
                         secrt: true,
                       ),
-                      const SizedBox(height: 10),
-                      textfiled_signupmoblie(
-                        icon: Icons.lock_outline,
-                        controller: hintPasswordController,
-                        hint: "Confirm Password",
-                        secrt: true,
-                      ),
-                      const SizedBox(height: 10),
-                      textfiled_signupmoblie(
-                        icon: Icons.person,
-                        controller: nameController,
-                        hint: "Your Name",
-                        secrt: false,
-                      ),
-                      const SizedBox(height: 10),
-                      textfiled_signupmoblie(
-                        icon: Icons.cake,
-                        controller: ageController,
-                        hint: "Your Age",
-                        secrt: false,
-                      ),
-                      const SizedBox(height: 10),
-                      textfiled_signupmoblie(
-                        icon: Icons.height,
-                        controller: ageController,
-                        hint: "Your hight",
-                        secrt: false,
-                      ),
-                      const SizedBox(height: 10),
-                      textfiled_signupmoblie(
-                        icon: Icons.fitness_center,
-                        controller: ageController,
-                        hint: "Your weight",
-                        secrt: false,
-                      ),
-                      const SizedBox(height: 10),
+                      const SizedBox(height: 20),
                       ElevatedButton(
                         style: ElevatedButton.styleFrom(
                           backgroundColor: const Color(0xffD5FF5F),
                           fixedSize: const Size(300, 50),
                         ),
-                        onPressed: () {},
+                        onPressed: () async {
+                          await saveString(emailController.text);
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => Home_Page()),
+                          );
+                        },
                         child: const Text(
-                          "Creat account",
+                          "Log in",
                           style: TextStyle(
                               fontWeight: FontWeight.bold,
                               fontSize: 18,
                               color: Color.fromARGB(255, 0, 0, 0)),
                         ),
                       ),
-                      const SizedBox(height: 20),
+                      const SizedBox(height: 10),
                       TextButton(
                         onPressed: () {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => signin_mobilState()),
+                                builder: (context) => SignUpmoblie()),
                           );
                         },
                         child: const Text(
-                          "Already have an account? Sign In",
-                          style: TextStyle(color: const Color(0xffD5FF5F)),
+                          "you dont have account? Sign up",
+                          style: const TextStyle(color: Color(0xffD5FF5F)),
                         ),
                       ),
                       const Visibility(

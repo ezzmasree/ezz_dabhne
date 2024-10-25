@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:wibsite/sign_up_moblie/textfield_signup.dart';
 
-class Sighnimoblie extends StatelessWidget {
-  const Sighnimoblie({super.key});
+class Edit extends StatelessWidget {
+  const Edit({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +18,7 @@ class Sighnimoblie extends StatelessWidget {
         backgroundColor: Colors.transparent,
         elevation: 0,
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back, color: Colors.black),
+          icon: const Icon(Icons.arrow_back, color: Color(0xffD5FF5F)),
           onPressed: () {
             Navigator.pop(context);
           },
@@ -50,28 +50,49 @@ class Sighnimoblie extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       const Text(
-                        "Sign in",
+                        "Edit your profile",
                         style: TextStyle(
-                          fontSize: 45,
+                          fontSize: 30,
                           fontWeight: FontWeight.bold,
                           color: Color(0xffD5FF5F),
                         ),
                       ),
                       const SizedBox(height: 20),
                       textfiled_signupmoblie(
-                        icon: Icons.email,
-                        controller: emailController,
-                        hint: "Email",
+                        icon: Icons.lock,
+                        controller: passwordController,
+                        hint: "your new password",
+                        secrt: true,
+                      ),
+                      const SizedBox(height: 10),
+                      textfiled_signupmoblie(
+                        icon: Icons.lock_outline,
+                        controller: hintPasswordController,
+                        hint: "Confirm Password",
+                        secrt: true,
+                      ),
+                      const SizedBox(height: 10),
+                      textfiled_signupmoblie(
+                        icon: Icons.person,
+                        controller: nameController,
+                        hint: "Edit Your Name",
                         secrt: false,
                       ),
                       const SizedBox(height: 10),
                       textfiled_signupmoblie(
-                        icon: Icons.lock,
-                        controller: passwordController,
-                        hint: "Password",
-                        secrt: true,
+                        icon: Icons.cake,
+                        controller: ageController,
+                        hint: "Edit Your Age",
+                        secrt: false,
                       ),
-                      const SizedBox(height: 20),
+                      const SizedBox(height: 10),
+                      textfiled_signupmoblie(
+                        icon: Icons.fitness_center,
+                        controller: ageController,
+                        hint: "Edit Your weight",
+                        secrt: false,
+                      ),
+                      const SizedBox(height: 10),
                       ElevatedButton(
                         style: ElevatedButton.styleFrom(
                           backgroundColor: const Color(0xffD5FF5F),
@@ -79,23 +100,14 @@ class Sighnimoblie extends StatelessWidget {
                         ),
                         onPressed: () {},
                         child: const Text(
-                          "Log in",
+                          "Change ",
                           style: TextStyle(
                               fontWeight: FontWeight.bold,
                               fontSize: 18,
                               color: Color.fromARGB(255, 0, 0, 0)),
                         ),
                       ),
-                      const SizedBox(height: 10),
-                      TextButton(
-                        onPressed: () {
-                          Navigator.pop(context);
-                        },
-                        child: const Text(
-                          "you dont have account? Sign up",
-                          style: const TextStyle(color: Color(0xffD5FF5F)),
-                        ),
-                      ),
+                      const SizedBox(height: 20),
                       const Visibility(
                         visible: false,
                         child: Text(

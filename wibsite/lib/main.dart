@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:wibsite/home_page/home.dart';
+
+import 'package:wibsite/sign_inmoblie/signin_moblie.dart';
+
 import 'package:wibsite/sign_up_moblie/sign_upmoblie.dart';
 //import 'package:wibsite/db/mongo.dart';
 
@@ -19,9 +22,9 @@ class MainApp extends StatelessWidget {
     return const MaterialApp(
       title: "ezz masre",
       debugShowCheckedModeBanner: false,
-      home: Home_Page(),
+      // home: Home_Page(),
       //home: TheMainPage(),
-      //home: SignUpmoblie(),
+      home: signin_mobilState(),
     );
   }
 }
