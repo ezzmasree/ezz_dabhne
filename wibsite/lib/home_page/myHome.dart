@@ -12,7 +12,7 @@ class MyHome extends StatefulWidget {
 class _MyHomeState extends State<MyHome> {
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xff0A0C17),
+      backgroundColor: Color.fromARGB(255, 0, 0, 0),
       // appBar: AppBar(
       //   backgroundColor: Colors.transparent,
       //   elevation: 0,

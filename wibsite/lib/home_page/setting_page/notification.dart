@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 class NotificationsPage extends StatefulWidget {
   @override
@@ -6,6 +7,7 @@ class NotificationsPage extends StatefulWidget {
 }
 
 class _NotificationsPageState extends State<NotificationsPage> {
+  Color ezz = Colors.white;
   bool _pushNotifications = true;
   bool _sound = true;
   bool _vibration = true;
@@ -38,15 +40,15 @@ class _NotificationsPageState extends State<NotificationsPage> {
               style: TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.bold,
-                color: Color(0xffD5FF5F), // Text color
+                color: ezz, // Text color
               ),
             ),
             SizedBox(height: 10),
             ListTile(
-              leading: Icon(Icons.notifications, color: Color(0xffD5FF5F)),
+              leading: Icon(Icons.notifications, color: ezz),
               title: Text(
                 'Push Notifications',
-                style: TextStyle(color: Color(0xffD5FF5F)),
+                style: TextStyle(color: ezz),
               ),
               trailing: Switch(
                 activeColor: Colors.blue,
@@ -60,10 +62,10 @@ class _NotificationsPageState extends State<NotificationsPage> {
               ),
             ),
             ListTile(
-              leading: Icon(Icons.volume_up, color: Color(0xffD5FF5F)),
+              leading: Icon(Icons.volume_up, color: ezz),
               title: Text(
                 'Sound',
-                style: TextStyle(color: Color(0xffD5FF5F)),
+                style: TextStyle(color: ezz),
               ),
               trailing: Switch(
                 activeColor: Colors.blue,
@@ -77,10 +79,10 @@ class _NotificationsPageState extends State<NotificationsPage> {
               ),
             ),
             ListTile(
-              leading: Icon(Icons.vibration, color: Color(0xffD5FF5F)),
+              leading: Icon(Icons.vibration, color: ezz),
               title: Text(
                 'Vibration',
-                style: TextStyle(color: Color(0xffD5FF5F)),
+                style: TextStyle(color: ezz),
               ),
               trailing: Switch(
                 activeColor: Colors.blue,
@@ -93,21 +95,21 @@ class _NotificationsPageState extends State<NotificationsPage> {
                 },
               ),
             ),
-            Divider(color: Color(0xffD5FF5F)),
+            Divider(color: ezz),
             Text(
               'Notification Preferences',
               style: TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.bold,
-                color: Color(0xffD5FF5F), // Text color
+                color: ezz, // Text color
               ),
             ),
             SizedBox(height: 10),
             ListTile(
-              leading: Icon(Icons.shopping_cart, color: Color(0xffD5FF5F)),
+              leading: Icon(Icons.shopping_cart, color: ezz),
               title: Text(
                 'Promotions',
-                style: TextStyle(color: Color(0xffD5FF5F)),
+                style: TextStyle(color: ezz),
               ),
               trailing: Switch(
                 activeColor: Colors.blue,
@@ -118,10 +120,10 @@ class _NotificationsPageState extends State<NotificationsPage> {
               ),
             ),
             ListTile(
-              leading: Icon(Icons.account_circle, color: Color(0xffD5FF5F)),
+              leading: Icon(Icons.account_circle, color: ezz),
               title: Text(
                 'Account Activity',
-                style: TextStyle(color: Color(0xffD5FF5F)),
+                style: TextStyle(color: ezz),
               ),
               trailing: Switch(
                 activeColor: Colors.blue,

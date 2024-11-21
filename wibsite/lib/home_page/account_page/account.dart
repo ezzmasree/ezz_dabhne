@@ -24,7 +24,7 @@ class _AccountPageState extends State<AccountPage> {
   }
 
   void searchById(String id) async {
-    final url = Uri.parse('http://192.168.1.4:3000/pro/$id');
+    final url = Uri.parse('http://192.168.1.3:3000/pro/$id');
 
     try {
       final response = await http.get(url);
@@ -49,7 +49,7 @@ class _AccountPageState extends State<AccountPage> {
 
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xff0A0C17),
+      backgroundColor: Color.fromARGB(255, 0, 0, 0),
       appBar: AppBar(
         leading: IconButton(
           icon: const Icon(Icons.arrow_back, color: Color(0xffD5FF5F)),

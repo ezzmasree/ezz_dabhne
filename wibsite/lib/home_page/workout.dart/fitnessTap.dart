@@ -29,6 +29,7 @@ class FitnessTab extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.black,
       body: GridView.builder(
         padding: EdgeInsets.all(8),
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
@@ -42,6 +43,7 @@ class FitnessTab extends StatelessWidget {
           final video = videos[index];
 
           return Card(
+            color: Colors.black,
             child: GestureDetector(
               onTap: () {
                 // When a video is tapped, navigate to the VideoPlayerPage
@@ -69,18 +71,47 @@ class FitnessTab extends StatelessWidget {
                           Text(
                             video['title']!,
                             style: TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.bold,
-                            ),
+                                fontSize: 16,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.white),
                           ),
                           SizedBox(height: 8),
-                          Text(video['description']!),
+                          Text(
+                            video['description']!,
+                            style: TextStyle(color: Colors.white),
+                          ),
                         ],
                       ),
                     ),
                     ElevatedButton(
-                      onPressed: () {},
-                      child: Text('Add to My List'),
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor:
+                            Color(0xffD5FF5F), // Set your desired color here
+                      ),
+                      onPressed: () {
+                        showDialog(
+                          context: context,
+                          builder: (BuildContext context) {
+                            return AlertDialog(
+                              title: Text("Success"),
+                              content: Text("You added the item to your list."),
+                              actions: [
+                                TextButton(
+                                  onPressed: () {
+                                    Navigator.of(context)
+                                        .pop(); // Close the dialog
+                                  },
+                                  child: Text("OK"),
+                                ),
+                              ],
+                            );
+                          },
+                        );
+                      },
+                      child: Text(
+                        'Add to My List',
+                        style: TextStyle(color: Colors.black),
+                      ),
                     ),
                     SizedBox(
                       height: 11,

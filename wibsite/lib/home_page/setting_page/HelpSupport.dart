@@ -28,29 +28,36 @@ class HelpSupportPage extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             ListTile(
-              leading: Icon(Icons.help, color: Color(0xffD5FF5F)),
-              title: Text('FAQs', style: TextStyle(color: Color(0xffD5FF5F))),
-              trailing: Icon(Icons.arrow_forward_ios, color: Color(0xffD5FF5F)),
+              leading:
+                  Icon(Icons.help, color: Colors.white), // Changed to white
+              title: Text('FAQs',
+                  style: TextStyle(color: Colors.white)), // Changed to white
+              trailing: Icon(Icons.arrow_forward_ios,
+                  color: Colors.white), // Changed to white
               onTap: () {
                 // Navigate to FAQ page
               },
             ),
-            Divider(color: Color(0xffD5FF5F)),
+            Divider(color: Colors.white), // Changed to white
             ListTile(
-              leading: Icon(Icons.contact_support, color: Color(0xffD5FF5F)),
+              leading: Icon(Icons.contact_support,
+                  color: Colors.white), // Changed to white
               title: Text('Contact Support',
-                  style: TextStyle(color: Color(0xffD5FF5F))),
-              trailing: Icon(Icons.arrow_forward_ios, color: Color(0xffD5FF5F)),
+                  style: TextStyle(color: Colors.white)), // Changed to white
+              trailing: Icon(Icons.arrow_forward_ios,
+                  color: Colors.white), // Changed to white
               onTap: () {
                 // Navigate to contact support page
               },
             ),
-            Divider(color: Color(0xffD5FF5F)),
+            Divider(color: Colors.white), // Changed to white
             ListTile(
-              leading: Icon(Icons.info, color: Color(0xffD5FF5F)),
-              title:
-                  Text('App Info', style: TextStyle(color: Color(0xffD5FF5F))),
-              trailing: Icon(Icons.arrow_forward_ios, color: Color(0xffD5FF5F)),
+              leading:
+                  Icon(Icons.info, color: Colors.white), // Changed to white
+              title: Text('App Info',
+                  style: TextStyle(color: Colors.white)), // Changed to white
+              trailing: Icon(Icons.arrow_forward_ios,
+                  color: Colors.white), // Changed to white
               onTap: () {
                 // Navigate to app info page
               },

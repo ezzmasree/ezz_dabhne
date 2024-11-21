@@ -74,8 +74,9 @@ class _MainPageState extends State<MainPage> {
     }
 
     return Scaffold(
+      backgroundColor: Color.fromARGB(255, 0, 0, 0),
       appBar: AppBar(
-        backgroundColor: Color(0xff1E1E25),
+        backgroundColor: Color(0xFF232121),
         title: Text('Home Page $savedString',
             style: TextStyle(color: Color(0xffD5FF5F))),
         leading: Builder(
@@ -179,7 +180,6 @@ class _MainPageState extends State<MainPage> {
           ],
         ),
       ),
-      backgroundColor: Color(0xff0A0C17),
       body: _getBody(),
       bottomNavigationBar: Padding(
         padding: const EdgeInsets.all(
@@ -241,11 +241,11 @@ class _MainPageState extends State<MainPage> {
     if (_currentIndex == 0) {
       return MyHome();
     } else if (_currentIndex == 1) {
-      return AccountPage();
+      return ServicePage();
     } else if (_currentIndex == 2) {
       return workout();
     } else if (_currentIndex == 3) {
-      return ServicePage();
+      return AccountPage();
     } else if (_currentIndex == 4) {
       return ServicePage();
     } else {

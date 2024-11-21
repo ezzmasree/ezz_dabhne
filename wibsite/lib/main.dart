@@ -27,4 +27,28 @@ class MainApp extends StatelessWidget {
       home: signin_mobilState(),
     );
   }
+  /*
+  final List<Map<String, String>> videos = [
+    {
+      'id': 'o2tDhbgYEdk',
+      'title': 'Workout Video 10',
+      'description': 'This is a description for video 1.'
+    },
+    {
+      'id': '1Lg5rJSKjZk',
+      'title': 'Workout Video 2',
+      'description': 'This is a description for video 2.'
+    },
+    {
+      'id': 'LFJ9ptKsQUo',
+      'title': 'Workout Video 3',
+      'description': 'This is a description for video 3.'
+    },
+    {
+      'id': 'qdGtc6-c0F0',
+      'title': 'Workout Video 4',
+      'description': 'This is a description for video 4.'
+    },
+  ];
+  */
 }

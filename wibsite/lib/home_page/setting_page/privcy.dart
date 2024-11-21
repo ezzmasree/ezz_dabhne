@@ -40,19 +40,21 @@ class PrivacyPageState extends State<PrivacyPage> {
               style: TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.bold,
-                color: Color(0xffD5FF5F), // Text color
+                color: Colors.white, // Changed to white
               ),
             ),
             SizedBox(height: 10),
             ListTile(
-              leading: Icon(Icons.location_on, color: Color(0xffD5FF5F)),
+              leading: Icon(Icons.location_on,
+                  color: Colors.white), // Changed to white
               title: Text(
                 'Location Services',
-                style: TextStyle(color: Color(0xffD5FF5F)),
+                style: TextStyle(color: Colors.white), // Changed to white
               ),
               subtitle: Text(
                 'Allow the app to access your location.',
-                style: TextStyle(color: Color(0xffD5FF5F).withOpacity(0.7)),
+                style: TextStyle(
+                    color: Colors.white.withOpacity(0.7)), // Changed to white
               ),
               trailing: Switch(
                 value: _locationServices,
@@ -66,14 +68,16 @@ class PrivacyPageState extends State<PrivacyPage> {
               ),
             ),
             ListTile(
-              leading: Icon(Icons.share, color: Color(0xffD5FF5F)),
+              leading:
+                  Icon(Icons.share, color: Colors.white), // Changed to white
               title: Text(
                 'Data Sharing',
-                style: TextStyle(color: Color(0xffD5FF5F)),
+                style: TextStyle(color: Colors.white), // Changed to white
               ),
               subtitle: Text(
                 'Allow sharing of your data with third parties.',
-                style: TextStyle(color: Color(0xffD5FF5F).withOpacity(0.7)),
+                style: TextStyle(
+                    color: Colors.white.withOpacity(0.7)), // Changed to white
               ),
               trailing: Switch(
                 value: _dataSharing,
@@ -87,14 +91,16 @@ class PrivacyPageState extends State<PrivacyPage> {
               ),
             ),
             ListTile(
-              leading: Icon(Icons.ads_click, color: Color(0xffD5FF5F)),
+              leading: Icon(Icons.ads_click,
+                  color: Colors.white), // Changed to white
               title: Text(
                 'Personalized Ads',
-                style: TextStyle(color: Color(0xffD5FF5F)),
+                style: TextStyle(color: Colors.white), // Changed to white
               ),
               subtitle: Text(
                 'Receive ads based on your activity and interests.',
-                style: TextStyle(color: Color(0xffD5FF5F).withOpacity(0.7)),
+                style: TextStyle(
+                    color: Colors.white.withOpacity(0.7)), // Changed to white
               ),
               trailing: Switch(
                 value: _personalizedAds,
@@ -107,33 +113,39 @@ class PrivacyPageState extends State<PrivacyPage> {
                 },
               ),
             ),
-            Divider(color: Color(0xffD5FF5F)),
+            Divider(color: Colors.white), // Changed to white
             ListTile(
-              leading: Icon(Icons.delete, color: Color(0xffD5FF5F)),
+              leading:
+                  Icon(Icons.delete, color: Colors.white), // Changed to white
               title: Text(
                 'Clear Browsing Data',
-                style: TextStyle(color: Color(0xffD5FF5F)),
+                style: TextStyle(color: Colors.white), // Changed to white
               ),
               subtitle: Text(
                 'Remove your browsing history and cached data.',
-                style: TextStyle(color: Color(0xffD5FF5F).withOpacity(0.7)),
+                style: TextStyle(
+                    color: Colors.white.withOpacity(0.7)), // Changed to white
               ),
-              trailing: Icon(Icons.arrow_forward_ios, color: Color(0xffD5FF5F)),
+              trailing: Icon(Icons.arrow_forward_ios,
+                  color: Colors.white), // Changed to white
               onTap: () {
                 // Add logic for clearing browsing data
               },
             ),
             ListTile(
-              leading: Icon(Icons.security, color: Color(0xffD5FF5F)),
+              leading:
+                  Icon(Icons.security, color: Colors.white), // Changed to white
               title: Text(
                 'Manage Permissions',
-                style: TextStyle(color: Color(0xffD5FF5F)),
+                style: TextStyle(color: Colors.white), // Changed to white
               ),
               subtitle: Text(
                 'Manage permissions granted to the app.',
-                style: TextStyle(color: Color(0xffD5FF5F).withOpacity(0.7)),
+                style: TextStyle(
+                    color: Colors.white.withOpacity(0.7)), // Changed to white
               ),
-              trailing: Icon(Icons.arrow_forward_ios, color: Color(0xffD5FF5F)),
+              trailing: Icon(Icons.arrow_forward_ios,
+                  color: Colors.white), // Changed to white
               onTap: () {
                 // Add logic for managing app permissions
               },
