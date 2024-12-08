@@ -13,50 +13,50 @@ class HelpSupportPage extends StatelessWidget {
             Navigator.pop(context);
           },
         ),
-        title: Text(
+        title: const Text(
           'Help & Support',
           style: TextStyle(
-            color: Color.fromARGB(255, 255, 255, 255),
+            color: const Color.fromARGB(255, 255, 255, 255),
           ),
         ),
         backgroundColor: Colors.black,
       ),
       body: Container(
         color: Colors.black,
-        padding: EdgeInsets.all(16.0),
+        padding: const EdgeInsets.all(16.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             ListTile(
               leading:
-                  Icon(Icons.help, color: Colors.white), // Changed to white
-              title: Text('FAQs',
+                  const Icon(Icons.help, color: Colors.white), // Changed to white
+              title: const Text('FAQs',
                   style: TextStyle(color: Colors.white)), // Changed to white
-              trailing: Icon(Icons.arrow_forward_ios,
+              trailing: const Icon(Icons.arrow_forward_ios,
                   color: Colors.white), // Changed to white
               onTap: () {
                 // Navigate to FAQ page
               },
             ),
-            Divider(color: Colors.white), // Changed to white
+            const Divider(color: Colors.white), // Changed to white
             ListTile(
-              leading: Icon(Icons.contact_support,
+              leading: const Icon(Icons.contact_support,
                   color: Colors.white), // Changed to white
-              title: Text('Contact Support',
+              title: const Text('Contact Support',
                   style: TextStyle(color: Colors.white)), // Changed to white
-              trailing: Icon(Icons.arrow_forward_ios,
+              trailing: const Icon(Icons.arrow_forward_ios,
                   color: Colors.white), // Changed to white
               onTap: () {
                 // Navigate to contact support page
               },
             ),
-            Divider(color: Colors.white), // Changed to white
+            const Divider(color: Colors.white), // Changed to white
             ListTile(
               leading:
-                  Icon(Icons.info, color: Colors.white), // Changed to white
-              title: Text('App Info',
+                  const Icon(Icons.info, color: Colors.white), // Changed to white
+              title: const Text('App Info',
                   style: TextStyle(color: Colors.white)), // Changed to white
-              trailing: Icon(Icons.arrow_forward_ios,
+              trailing: const Icon(Icons.arrow_forward_ios,
                   color: Colors.white), // Changed to white
               onTap: () {
                 // Navigate to app info page

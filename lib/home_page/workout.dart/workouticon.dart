@@ -55,16 +55,16 @@ class home extends StatelessWidget {
           // ignore: prefer_const_constructors
           title: TabBar(
             tabs: [
-              Tab(
+              const Tab(
                 text: 'Workout-in',
                 icon: Icon(
                     Icons.fitness_center), // Optional: Add an icon if needed
               ),
-              Tab(
+              const Tab(
                 text: 'Workout-out',
                 icon: Icon(Icons.directions_run), // Optional: Add an icon
               ),
-              Tab(
+              const Tab(
                 text: 'Training',
                 icon: Icon(Icons.accessibility_new), // Optional: Add an icon
               ),
@@ -79,11 +79,11 @@ class home extends StatelessWidget {
               fontWeight: FontWeight.bold, // Make the text bold
               fontSize: 16, // Font size of the active tab
             ),
-            unselectedLabelStyle: TextStyle(
+            unselectedLabelStyle: const TextStyle(
               fontWeight: FontWeight.normal, // Normal text for inactive tabs
             ),
             indicatorPadding:
-                EdgeInsets.symmetric(horizontal: 16.0), // Indicator padding
+                const EdgeInsets.symmetric(horizontal: 16.0), // Indicator padding
           ),
         ),
         body: TabBarView(

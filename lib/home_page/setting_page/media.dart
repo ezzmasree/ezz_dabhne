@@ -55,25 +55,25 @@ class FitnessMediaPage extends StatelessWidget {
             Navigator.pop(context);
           },
         ),
-        title: Text(
+        title: const Text(
           'Fitness Hub',
           style: TextStyle(color: Color.fromARGB(255, 255, 255, 255)),
         ),
-        backgroundColor: Color.fromARGB(255, 0, 0, 0), // Your custom color
+        backgroundColor: const Color.fromARGB(255, 0, 0, 0), // Your custom color
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: ListView(
           children: [
             // Section for workout videos
-            Text(
+            const Text(
               'Workout Videos',
               style: TextStyle(
                   fontSize: 24,
                   fontWeight: FontWeight.bold,
                   color: Color(0xffD5FF5F)),
             ),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             Container(
               height: 200, // Adjust height as needed
               child: ListView.builder(
@@ -108,31 +108,31 @@ class FitnessMediaPage extends StatelessWidget {
                 },
               ),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
 
             // Section for articles
-            Text(
+            const Text(
               'Fitness Articles',
               style: TextStyle(
                   color: Color(0xffD5FF5F),
                   fontSize: 24,
                   fontWeight: FontWeight.bold),
             ),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             ListView.builder(
               shrinkWrap: true,
-              physics: NeverScrollableScrollPhysics(), // Prevent scrolling
+              physics: const NeverScrollableScrollPhysics(), // Prevent scrolling
               itemCount: articles.length,
               itemBuilder: (context, index) {
                 return Card(
-                  color: Color(0xff2E2E35),
+                  color: const Color(0xff2E2E35),
                   child: ListTile(
                     title: Text(
                       articles[index]['title']!,
-                      style: TextStyle(color: Colors.white),
+                      style: const TextStyle(color: Colors.white),
                     ),
                     subtitle: Text(articles[index]['description']!,
-                        style: TextStyle(color: Colors.white)),
+                        style: const TextStyle(color: Colors.white)),
                     onTap: () {
                       // Handle article tap (navigate to article detail page)
                       // You can create a detailed article page here
@@ -141,24 +141,24 @@ class FitnessMediaPage extends StatelessWidget {
                 );
               },
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
 
             // Motivational Quotes Section (Optional)
-            Text(
+            const Text(
               'Motivational Quotes',
               style: TextStyle(
                   color: Color(0xffD5FF5F),
                   fontSize: 24,
                   fontWeight: FontWeight.bold),
             ),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             Container(
-              padding: EdgeInsets.all(16.0),
+              padding: const EdgeInsets.all(16.0),
               decoration: BoxDecoration(
                 color: Colors.grey[200],
                 borderRadius: BorderRadius.circular(8),
               ),
-              child: Text(
+              child: const Text(
                 '"The only bad workout is the one that didn\'t happen."',
                 style: TextStyle(fontSize: 18, fontStyle: FontStyle.italic),
                 textAlign: TextAlign.center,
@@ -181,7 +181,7 @@ class VideoPlayerPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final YoutubePlayerController _controller = YoutubePlayerController(
       initialVideoId: videoId,
-      flags: YoutubePlayerFlags(
+      flags: const YoutubePlayerFlags(
         autoPlay: true,
         mute: false,
       ),
@@ -195,11 +195,11 @@ class VideoPlayerPage extends StatelessWidget {
             Navigator.pop(context);
           },
         ),
-        title: Text(
+        title: const Text(
           'Video Player',
           style: TextStyle(color: Color(0xffD5FF5F)),
         ),
-        backgroundColor: Color.fromARGB(255, 0, 0, 0),
+        backgroundColor: const Color.fromARGB(255, 0, 0, 0),
       ),
       body: Column(
         children: [
@@ -208,7 +208,7 @@ class VideoPlayerPage extends StatelessWidget {
             showVideoProgressIndicator: true,
             progressIndicatorColor: Colors.amber,
           ),
-          SizedBox(height: 20),
+          const SizedBox(height: 20),
           // You can add more content below the player if needed
         ],
       ),

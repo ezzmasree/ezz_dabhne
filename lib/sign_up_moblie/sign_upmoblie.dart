@@ -66,7 +66,7 @@ class SignUpmoblie extends StatelessWidget {
             context,
             MaterialPageRoute(
               builder: (context) =>
-                  Home_Page(), // Replace with your target page
+                  const Home_Page(), // Replace with your target page
             ),
           );
         } catch (e) {
@@ -74,12 +74,12 @@ class SignUpmoblie extends StatelessWidget {
           showDialog(
             context: context,
             builder: (context) => AlertDialog(
-              title: Text("Error"),
+              title: const Text("Error"),
               content: Text(e.toString()),
               actions: [
                 TextButton(
                   onPressed: () => Navigator.pop(context),
-                  child: Text("OK"),
+                  child: const Text("OK"),
                 ),
               ],
             ),
@@ -90,12 +90,12 @@ class SignUpmoblie extends StatelessWidget {
         showDialog(
           context: context,
           builder: (context) => AlertDialog(
-            title: Text("Password Mismatch"),
-            content: Text("The passwords do not match. Please try again."),
+            title: const Text("Password Mismatch"),
+            content: const Text("The passwords do not match. Please try again."),
             actions: [
               TextButton(
                 onPressed: () => Navigator.pop(context),
-                child: Text("OK"),
+                child: const Text("OK"),
               ),
             ],
           ),
@@ -220,7 +220,7 @@ class SignUpmoblie extends StatelessWidget {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => signin_mobilState()),
+                                builder: (context) => const signin_mobilState()),
                           );
                         },
                         child: const Text(
